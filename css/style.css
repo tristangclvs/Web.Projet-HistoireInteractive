@@ -1,0 +1,43 @@
+body {
+    padding-top: 60px;
+}
+
+.footer {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.movieTitle:hover,
+.movieTitle:focus {
+    text-decoration: none;
+}
+
+.movieContent {
+    text-align: justify;
+}
+
+.movieImage {
+    border-radius: 7px;
+    border: 4px solid white;
+    box-shadow: 1px 1px 10px #555;
+}
+
+.movieTitle:hover,
+.movieTitle:focus {
+    text-decoration: none;
+}
+
+.movieContent {
+    text-align: justify;
+}
+
+.movieImage {
+    border-radius: 7px;
+    border: 4px solid white;
+    box-shadow: 1px 1px 10px #555;
+}
+body {
+    padding-top: 60px;
+}
