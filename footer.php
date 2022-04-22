@@ -3,7 +3,7 @@
 <footer>
     <div class="container-fluid bg-dark">
         <div class="row">
-            <div class="col text-center "> Ceci est un joli foot-age de gueule.</div>
+            <div class="col text-center"> Ceci est un joli foot-age de gueule.</div>
         </div>
     </div>
 </footer>
