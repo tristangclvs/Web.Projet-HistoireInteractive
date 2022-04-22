@@ -3,8 +3,9 @@
 <?php if ($_SESSION["erreur_connexion"]) {
     echo '<div class="alert alert-danger text-center"><span style="font-weight: bold">Erreur ! </span>Utilisateur non reconnu.</div><br>';
     $_SESSION["erreur_connexion"] = false;
-} ?>
-
+}
+if (!$_SESSION["connected"]){
+?>
 <!-- Ne pas pouvoir de rendre sur cette page si déjà connecté -->
 <div class="text-center text-white"><h2>Connexion</h2></div>
 
@@ -23,7 +24,13 @@
         <a type="button" class="btn btn-danger" href="inscription.php">Sign up</a>
     </form>
 </div>
-
-
+<?php
+}
+else{
+    ?>
+    <img src="images/chat.png" alt="Je te vois petit malin" style="width: 100%;height: 100vh; z-index: 100000;position: absolute; top: 0;">
+<?php
+}
+?>
 
 <?php include("footer.php")?>
