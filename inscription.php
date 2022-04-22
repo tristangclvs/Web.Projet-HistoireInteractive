@@ -1,13 +1,14 @@
 <?php include("entete.php") ?>
 
+<!-- Ne pas pouvoir de rendre sur cette page si déjà connecté -->
 
 <div class="text-center"><h2>Inscription</h2></div>
 
 <div class="container mx-auto" id="containerConnexion" style="width:30%;">
     <form class="px-4 py-3" method="post" action="scripts/script_inscription.php">
         <div class="mb-3">
-            <label for="FormName" class="form-label">Username</label>
-            <input type="text" name="usrName" class="form-control" id="FormName" placeholder="Username">
+            <label for="FormName" class="form-label">Prénom</label>
+            <input type="text" name="usrName" class="form-control" id="FormName" placeholder="Prénom">
         </div>
         <div class="mb-3">
             <label for="FormUsername" class="form-label">Username</label>

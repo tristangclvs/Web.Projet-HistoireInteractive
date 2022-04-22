@@ -1,8 +1,8 @@
 <?php include("entete.php") ?>
 
 
-
-<div class="text-center"><h2>Connexion</h2></div>
+<!-- Ne pas pouvoir de rendre sur cette page si déjà connecté -->
+<div class="text-center text-white"><h2>Connexion</h2></div>
 
 <div class="container mx-auto">
     <form class="px-4 py-3">
