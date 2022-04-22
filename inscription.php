@@ -11,12 +11,12 @@
             <input type="text" name="usrName" class="form-control" id="FormName" placeholder="Prénom">
         </div>
         <div class="mb-3">
-            <label for="FormUsername" class="form-label">Username</label>
-            <input type="text" name="usrName" class="form-control" id="FormUsername" placeholder="Username">
+            <label for="FormUsrname" class="form-label">Username</label>
+            <input type="text" name="usrName" class="form-control" id="FormUsrname" placeholder="Username">
         </div>
         <div class="mb-3">
-            <label for="FormPassword" class="form-label">Password</label>
-            <input type="password" name="usrPass" class="form-control" id="FormPassword" placeholder="Password">
+            <label for="FormPass" class="form-label">Password</label>
+            <input type="password" name="usrPass" class="form-control" id="FormPass" placeholder="Password">
         </div>
         <div class="dropdown-divider"></div>
         <button type="submit" class="btn btn-danger">Sign up</button>
