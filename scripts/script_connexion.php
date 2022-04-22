@@ -11,13 +11,17 @@ if (isset($_POST["usrName"]) && isset($_POST["usrPass"])) {
     $response->execute(array($usrName, $usrPass));
     $n = $response->rowCount();
 
+    $ligne = $response->fetch();
+    $_SESSION["nomUtilisateur"] = $ligne['prenom'];
 }
+
+
+
 if ($n==0){
     $_SESSION["connected"] = false;
+    $_SESSION["erreur_connexion"] = true;
+    header('location: ../login.php');
+    exit;
 }
-else { $_SESSION["connected"]  = true;}
-
-
-
-
-header('location: index.php');
+else {$_SESSION["connected"]  = true;}
+header('location: ../index.php');
