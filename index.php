@@ -5,7 +5,7 @@
 
 
 
-
+<img src="images/Accueil.png" alt="Description" class="mx-auto d-block">
 
 
 <?php include("footer.php") ?>
