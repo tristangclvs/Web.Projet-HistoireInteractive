@@ -1,13 +1,7 @@
 <?php
 session_start();
-if(!isset($_SESSION['nav'])){
-    $_SESSION['nav'] = 'Se connecter';
-}
-if(!isset($_SESSION['verif'])){
-    $_SESSION['verif'] = true;
-}
-if(!isset($_SESSION['verif2'])) {
-    $_SESSION['verif2'] = true;
+if (!isset($_SESSION["connected"])) {
+    $_SESSION["connected"] = false;
 }
 if (!isset($_SESSION["erreur_connexion"])) {
     $_SESSION["erreur_connexion"] = false;
@@ -24,8 +18,9 @@ include("scripts/connect.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
-
+    <link rel="icon" type="image/png" href="images/book.png">
 </head>
+
 <body>
 <header id="heads" class="py-4">
     <nav id="navb" class="navbar navbar-expand-md fixed-top navbar-dark " style="background-color: rgb(38,41,45);">
@@ -39,12 +34,12 @@ include("scripts/connect.php");
             </div>
             <div class="col-2">
                 <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php if ($_SESSION['nav']=='Se connecter'){
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php if ($_SESSION["connected"] == false) {
                             echo 'Non connecté';
-                        }
-                        else{
-                            echo $_SESSION['nav'];
+                        } else {
+                            echo "Bonjour, " . $_SESSION["nomUtilisateur"];
                         }
                         ?>
                     </button>
@@ -54,7 +49,7 @@ include("scripts/connect.php");
                         if ($_SESSION['connected'] == false) {
                             echo '<li class="nav-item"><a class="nav-link dropdown-item text-white" href="login.php">' . "Se connecter" . '</a></li>';
                         } else {
-                            echo '<li class="nav-item"><a class="nav-link  dropdown-item  text-white" href="/scripts/script_deconnexion.php">Se déconnecter</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link  dropdown-item  text-white" href="scripts/script_deconnexion.php">Se déconnecter</a></li>';
                         }
                         ?>
 
