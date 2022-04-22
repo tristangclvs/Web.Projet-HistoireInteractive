@@ -9,6 +9,9 @@ if(!isset($_SESSION['verif'])){
 if(!isset($_SESSION['verif2'])) {
     $_SESSION['verif2'] = true;
 }
+if (!isset($_SESSION["erreur_connexion"])) {
+    $_SESSION["erreur_connexion"] = false;
+}
 include("scripts/connect.php");
 ?>
 

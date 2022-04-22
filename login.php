@@ -1,5 +1,9 @@
 <?php include("entete.php") ?>
 
+<?php if ($_SESSION["erreur_connexion"]) {
+    echo '<div class="alert alert-danger text-center"><span style="font-weight: bold">Erreur ! </span>Utilisateur non reconnu.</div><br>';
+    $_SESSION["erreur_connexion"] = false;
+} ?>
 
 <!-- Ne pas pouvoir de rendre sur cette page si déjà connecté -->
 <div class="text-center text-white"><h2>Connexion</h2></div>
