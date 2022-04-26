@@ -6,6 +6,9 @@ if (!isset($_SESSION["connected"])) {
 if (!isset($_SESSION["erreur_connexion"])) {
     $_SESSION["erreur_connexion"] = false;
 }
+if (!isset($_SESSION["inscription"])){
+    $_SESSION["inscription"] = false;
+}
 include("scripts/connect.php");
 ?>
 

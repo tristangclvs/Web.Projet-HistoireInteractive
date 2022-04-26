@@ -12,8 +12,8 @@ if (isset($_POST["prenom"]) &&  isset($_POST["usrName"]) && isset($_POST["usrPas
     $response->execute(array($prenom, $usrName, $usrPass, 0));
 
     $_SESSION["inscription"] = true;
+    $_SESSION["usrNameInscription"] = $usrName;
 }
-
 
 
 header('location: ../login.php');
