@@ -94,3 +94,10 @@ body {
     from  { transform: translateZ(-35vw) rotateY(0); }
     to  { transform: translateZ(-35vw) rotateY(-120deg); }
 }
+
+#button{
+    background: linear-gradient(#e66465, #a86bf2);
+}
+#button:hover{
+    background: linear-gradient(#a86bf2, #e66465);
+}
