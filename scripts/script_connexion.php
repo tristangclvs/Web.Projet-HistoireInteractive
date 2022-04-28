@@ -13,6 +13,7 @@ if (isset($_POST["usrName"]) && isset($_POST["usrPass"])) {
 
     $ligne = $response->fetch();
     $_SESSION["nomUtilisateur"] = $ligne['prenom'];
+
 }
 
 

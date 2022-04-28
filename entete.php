@@ -51,8 +51,10 @@ include("scripts/connect.php");
                         <?php
                         if ($_SESSION['connected'] == false) {
                             echo '<li class="nav-item"><a class="nav-link dropdown-item text-white" href="login.php">' . "Se connecter" . '</a></li>';
-                        } else {
-                            echo '<li class="nav-item"><a class="nav-link  dropdown-item  text-white" href="scripts/script_deconnexion.php">Se déconnecter</a></li>';
+                        } else { ?>
+                            <li class="nav-item"><a class="nav-link  dropdown-item  text-white" href="scripts/script_deconnexion.php">Se déconnecter</a></li>
+                            <li class="nav-item"><a class="nav-link  dropdown-item  text-white" href="histoire_ajout.php">Ajouter une histoire</a></li>
+                        <?php
                         }
                         ?>
 
