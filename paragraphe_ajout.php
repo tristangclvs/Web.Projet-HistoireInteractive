@@ -22,8 +22,8 @@ $_SESSION["ajout_parag"] = false;
     <fieldset class="border border-light border-2 rounded">
         <form id="formParag" class="px-4 py-3" method="post" action="scripts/script_ajoutParagraphe.php">
             <div class="mb-3">
-                <label for="FormTitre" class="form-label">Titre</label>
-                <input type="text" name="titre" class="form-control" id="FormTitre" placeholder="Titre" required>
+                <label for="FormTitre" class="form-label">Titre du paragraphe</label>
+                <input type="text" name="titre_parag" class="form-control" id="FormTitreParag" placeholder="Titre du paragraphe" required>
             </div>
             <div class="mb-3">
                 <label for="ParagNumero" class="form-label">Numéro du paragraphe</label>
