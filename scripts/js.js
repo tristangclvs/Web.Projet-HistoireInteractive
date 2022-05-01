@@ -1,7 +1,7 @@
 let cards = document.getElementById("cards");
 
 
-function test(){
+function carousel(){ //Fonction click carousel
     console.log("----");
     let st = window.getComputedStyle(cards, null);
     let matrix = st.getPropertyValue("transform");
@@ -35,3 +35,65 @@ function test(){
     cards.style.transform= (`translateZ(-35vw) rotateY(${parseInt(actualRotate)+120}deg)`);
 //    cards.style.transform.replace(cards.style.transform.split(" ")[1],"translateX(10px)");
 }
+let variable = 1;
+// Au clic du bouton on ajoute ...
+const bouton = document.getElementById('boutonAjoutLien');
+bouton.addEventListener('click',(event)=>{
+    variable += 1;
+    ajoutLien();
+});
+
+function ajoutLien(){
+    let formParag = document.getElementById("formParag");
+    let divNouveauxLiens = document.getElementById("nouveauxLiens");
+
+    let divProchainAction = document.createElement("div");
+    divProchainAction.classList.add("mb-3");
+    divNouveauxLiens.appendChild(divProchainAction);
+
+    let labelAction = document.createElement("label");
+    labelAction.setAttribute("for", `FormAction${variable}`);
+    labelAction.classList.add("form-label");
+    labelAction.innerText = "Nom de l'action";
+
+    let inputAction = document.createElement("input");
+    inputAction.setAttribute("type", "text");
+    inputAction.setAttribute("name", `titre_parag${variable}`);
+    inputAction.setAttribute("id", `FormAction${variable}`);
+    inputAction.setAttribute("placeholder", "Nom de l'action");
+    inputAction.classList.add("form-control");
+
+    //ajout de l'action
+    divProchainAction.appendChild(labelAction);
+    divProchainAction.appendChild(inputAction);
+
+    ////////////////////////////////////////////////////////////////////
+
+    // div générale du numéro
+    let divProchainNumero = document.createElement("div");
+    divProchainNumero.classList.add("mb-3");
+    divNouveauxLiens.appendChild(divProchainNumero);
+
+    //label et input du numéro de paragraphe
+    let labelNumero = document.createElement("label");
+    labelNumero.setAttribute("for", `ParagNumero${variable}`);
+    labelNumero.classList.add("form-label");
+    labelNumero.innerText = "Numéro du paragraphe"
+
+    let inputNumero = document.createElement("input");
+    inputNumero.setAttribute("type", "number");
+    inputNumero.setAttribute("name", `numero_parag_cible${variable}`);
+    inputNumero.setAttribute("id", `ParagNumero${variable}`);
+    inputNumero.setAttribute("placeholder", "Numéro du paragraphe");
+    inputNumero.classList.add("form-control");
+    //ajout du numéro paragraphe
+    divProchainNumero.appendChild(labelNumero);
+    divProchainNumero.appendChild(inputNumero);
+
+
+    let divider = document.createElement("div");
+    divider.classList.add("dropdown-divider","bg-light", "mb-3");
+    divNouveauxLiens.appendChild(divider);
+}
+
+

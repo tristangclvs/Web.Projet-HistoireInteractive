@@ -30,7 +30,6 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
     $response = $BDD->prepare($sqlVerif);
     $response->execute(array($histTitre, $histCategorie, $histAuteur, $histAnnee,$histDescription));
 
-    $_SESSION["id_histoire"] = $response->lastInsertId();
 
     $_SESSION["ajout_hist"] = true;
 }

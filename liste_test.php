@@ -14,7 +14,7 @@
     </div>
 </div>
 <div class="container">
-    <button onclick="test()"> Click me ! </button>
+    <button onclick="carousel()"> Click me ! </button>
 </div>
 
 
