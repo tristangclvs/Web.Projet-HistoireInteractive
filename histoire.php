@@ -18,6 +18,13 @@ $ligne = $prep->fetch();
             <p><?=$ligne['auteur']?>, <?=$ligne['annee']?></p>
             <p><small><?=$ligne['description']?></small></p>
             </h2>
+            <?php if($_SESSION["connected"]){
+                ?>
+                <br>
+                <div class="container">
+                    <button onclick="location.href='paragraphe.php?id=1'" type="button" class="btn btn-sucess btn-outline-dark">Commencer l'histoire</button>
+                </div>
+            <?php }?>
         </div>
     </div>
 </div>
