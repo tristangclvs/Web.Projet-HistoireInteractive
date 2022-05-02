@@ -38,14 +38,9 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
         {
             //deuxieme requete : Création de l'histoire dans la BDD
             $fichier = $_FILES["fileToUpload"]['name'];
-            echo 'Avant upload';
-            echo $dossier . $fichier;
-            echo $_FILES["fileToUpload"]['tmp_name'];
-            // Demander a Gabriel pourquoi le move uploaded files ne marche pas, pck pas en local ?
             if(move_uploaded_file($_FILES["fileToUpload"]['tmp_name'], $dossier . $fichier)) {
-                echo 'upload réussi';
                 //deuxieme requete : Création de l'histoire dans la BDD
-                $sqlVerif = "INSERT INTO histoire(titre,categorie,auteur,annee,description,image) VALUES (?,?,?,?,?,?)";
+                $sqlVerif = "INSERT INTO `histoire`(titre,categorie,auteur,annee,description,image) VALUES (?,?,?,?,?,?)";
                 $response = $BDD->prepare($sqlVerif);
                 $response->execute(array($histTitre, $histCategorie, $histAuteur, $histAnnee,$histDescription,$fichier));
                 //$_SESSION["id_histoire"] = $response->lastInsertId();
@@ -55,6 +50,11 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
                 echo 'Echec de l\'upload !';
             }
         }
+        else
+        {
+            echo $erreur;
+        }
+
     }
     else{
         //deuxieme requete : Création de l'histoire dans la BDD
@@ -68,10 +68,9 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
 
 
     $_SESSION["ajout_hist"] = true;
-    //header("Location: ../paragraphe_ajout.php");
+    header("Location: ../paragraphe_ajout.php");
     exit();
 }
-else{
-    //Image de chat
-}
-
+else{?>
+    <img src="../images/chat.jpg" alt="Tu t'es fait piégé eh oui !"/>
+<?php }?>

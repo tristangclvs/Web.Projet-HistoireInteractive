@@ -69,6 +69,6 @@ if (isset($_POST["titre_parag"]) )
 
 }
 else
-{
-    //grumpy cat
-}
+{?>
+    <img src="../images/chat.png" alt="Tu t'es fais piégé"/>
+<?php } ?>
