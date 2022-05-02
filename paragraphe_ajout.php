@@ -23,11 +23,11 @@ $_SESSION["ajout_parag"] = false;
         <form id="formParag" class="px-4 py-3" method="post" enctype="multipart/form-data" action="scripts/script_ajoutParagraphe.php">
             <div class="mb-3">
                 <label for="FormTitre" class="form-label">Titre du paragraphe</label>
-                <input type="text" name="titre_parag" class="form-control" id="FormTitreParag" placeholder="Titre du paragraphe" required>
+                <input type="text" name="titre_parag0" class="form-control" id="FormTitreParag" placeholder="Titre du paragraphe" required>
             </div>
             <div class="mb-3">
                 <label for="ParagNumero" class="form-label">Numéro du paragraphe</label>
-                <input type="number" name="numero_parag" class="form-control" id="ParagNumero" placeholder="Numéro du paragraphe" required>
+                <input type="number" name="numero_parag0" class="form-control" id="ParagNumero" placeholder="Numéro du paragraphe" required>
             </div>
             <div class="mb-3">
                 <label for="ParagContenu" class="form-label">Contenu</label>

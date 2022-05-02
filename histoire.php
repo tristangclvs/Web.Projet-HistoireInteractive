@@ -22,7 +22,7 @@ $ligne = $prep->fetch();
                 ?>
                 <br>
                 <div class="container">
-                    <button onclick="location.href='paragraphe.php?id=1'" type="button" class="btn btn-sucess btn-outline-dark">Commencer l'histoire</button>
+                    <button onclick="location.href='paragraphe.php?id=1'" type="button" class="btn btn-sucess btn-outline-light">Commencer l'histoire</button>
                 </div>
             <?php }?>
         </div>

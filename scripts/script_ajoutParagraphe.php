@@ -3,14 +3,14 @@ session_start();
 include("connect.php");
 $nbPOSTS = 1;
 // Demander à Gabriel s'il faut vérifier tous les isset sachant qu'on est avec des required
-if (isset($_POST["titre_parag"]) )
+if (isset($_POST["titre_parag0"]) )
 {
     // Variables
-    $titre_parag =$_POST["titre_parag"];
-    $numero_parag = $_POST["numero_parag"];
+    $titre_parag =$_POST["titre_parag0"];
+    $numero_parag = $_POST["numero_parag0"];
     $contenu_parag = $_POST["contenu_parag"];
     $id_histoire = $_SESSION["id_histoire"];
-
+    var_dump($_POST["image"]);
     // Gestion de l'image après
     if (isset($_POST["image"]))
     {
@@ -53,18 +53,20 @@ if (isset($_POST["titre_parag"]) )
     $nbPOSTSSupp = $nbPOSTS - 6;
     for($i=0;$i<$nbPOSTSSupp;$i++)
     {
+        $suiv = $i+1;
         // Ajout dans la table lien
         $nom_action =$_POST["titre_parag$i"];
-        $id_parag_cible = $_POST["numero_parag_cible$i"];
+        $id_parag_cible = $_POST["numero_parag_cible$suiv"];
 
-        $sqlVerif = "INSERT INTO paragraphe(id_parag_debut,id_parag_cible,lien_nomaction,id_histoire) VALUES (?,?,?,?)";
+
+        $sqlVerif = "INSERT INTO lien(id_parag_debut,id_parag_cible,lien_nomaction,id_histoire) VALUES (?,?,?,?)";
         $response = $BDD->prepare($sqlVerif);
-        $response->execute(array($numero_parag,$id_parag_cible ,$nom_action , $titre_parag,$id_histoire));
+        $response->execute(array($numero_parag,$id_parag_cible ,$nom_action , $id_histoire));
     }
     $_SESSION["num_parag"] = $numero_parag;
     $_SESSION["ajout_parag"] = true;
-    header("Location: ../paragraphe_ajout.php");
-    exit();
+    //header("Location: ../paragraphe_ajout.php");
+    //exit();
 
 
 }
