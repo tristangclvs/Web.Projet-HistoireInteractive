@@ -67,7 +67,7 @@ $_SESSION["ajout_parag"] = false;
             <button type="submit" class="btn btn-success text-white" id="button" aria-describedby="poursuivreProchain">Ajout du prochain paragraphe</button>
             <small id="poursuivreProchain" class="text-muted text_white">
                 Cliquer pour continuer ... </small>
-            <button type="button" onclick="location.href='histoire.php?id=<?=$_GET['id']?>'" class="btn btn-danger text-white" id="button" aria-describedby="poursuivreDernier">Terminer l'histoire</button>
+            <button type="button" onclick='location.href="histoire.php?id=<?=$_GET['id']?>"' class="btn btn-danger text-white" id="button" aria-describedby="poursuivreDernier">Terminer l'histoire</button>
 
             <!-- Dans le onclick de ce bouton, créer un fichier histoire qui affiche l'histoire -->
 
