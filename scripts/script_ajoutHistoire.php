@@ -21,7 +21,6 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
         exit();
     }
 
-
     if (!empty($_FILES["fileToUpload"]))
     {
 
@@ -43,8 +42,7 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
                 $sqlVerif = "INSERT INTO `histoire`(titre,categorie,auteur,annee,description,image) VALUES (?,?,?,?,?,?)";
                 $response = $BDD->prepare($sqlVerif);
                 $response->execute(array($histTitre, $histCategorie, $histAuteur, $histAnnee,$histDescription,$fichier));
-                //$_SESSION["id_histoire"] = $response->lastInsertId();
-
+                $_SESSION["id_histoire"] = $response->lastInsertId();
             }
             else {
                 echo 'Echec de l\'upload !';
@@ -64,8 +62,6 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
         $_SESSION["id_histoire"] = $BDD->lastInsertId();
 
     }
-
-
 
     $_SESSION["ajout_hist"] = true;
     header("Location: ../paragraphe_ajout.php");

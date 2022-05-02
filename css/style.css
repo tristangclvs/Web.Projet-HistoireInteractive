@@ -101,3 +101,9 @@ body {
 #button:hover{
     background: linear-gradient(#a86bf2, #e66465);
 }
+
+.histoireImage {
+    border-radius: 7px;
+    border: 4px solid white;
+    box-shadow: 1px 1px 10px #555;
+}
