@@ -42,7 +42,7 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
                 $sqlVerif = "INSERT INTO `histoire`(titre,categorie,auteur,annee,description,image) VALUES (?,?,?,?,?,?)";
                 $response = $BDD->prepare($sqlVerif);
                 $response->execute(array($histTitre, $histCategorie, $histAuteur, $histAnnee,$histDescription,$fichier));
-                $_SESSION["id_histoire"] = $response->lastInsertId();
+                $_SESSION["id_histoire"] = $BDD->lastInsertId();
             }
             else {
                 echo 'Echec de l\'upload !';
