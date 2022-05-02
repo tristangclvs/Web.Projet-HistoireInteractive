@@ -31,7 +31,7 @@ $_SESSION["ajout_parag"] = false;
             </div>
             <div class="mb-3">
                 <label for="ParagContenu" class="form-label">Contenu</label>
-                <input type="text" name="contenu_parag" class="form-control" id="ParagContenu" placeholder="Auteur" required>
+                <input type="textarea" name="contenu_parag" class="form-control" id="ParagContenu" placeholder="Contenu" required>
             </div>
 
             <div class="mb-3 ">
