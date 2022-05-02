@@ -61,7 +61,7 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
         $sqlVerif = "INSERT INTO histoire(titre,categorie,auteur,annee,description) VALUES (?,?,?,?,?)";
         $response = $BDD->prepare($sqlVerif);
         $response->execute(array($histTitre, $histCategorie, $histAuteur, $histAnnee,$histDescription));
-        //$_SESSION["id_histoire"] = $response->lastInsertId();
+        $_SESSION["id_histoire"] = $BDD->lastInsertId();
 
     }
 
