@@ -23,8 +23,6 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
 
     if (!empty($_FILES["fileToUpload"]))
     {
-
-        echo 'On est dedans';
         $image = basename($_FILES['fileToUpload']['name']);
         $dossier = '../images/';
         $extensions = array('.png', '.gif', '.jpg', '.jpeg');

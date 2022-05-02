@@ -1,4 +1,5 @@
 <?php
+error_log(-1);
 session_start();
 include("connect.php");
 $nbPOSTS = 1;
@@ -10,9 +11,9 @@ if (isset($_POST["titre_parag0"]) )
     $numero_parag = $_POST["numero_parag0"];
     $contenu_parag = $_POST["contenu_parag"];
     $id_histoire = $_SESSION["id_histoire"];
-    var_dump($_POST["image"]);
+    var_dump($_FILES["image"]);
     // Gestion de l'image après
-    if (isset($_POST["image"]))
+    if (!empty($_FILES["image"]))
     {
         $image = basename($_FILES['image']['name']);
         $dossier = '../images/';
@@ -28,7 +29,7 @@ if (isset($_POST["titre_parag0"]) )
             $fichier = $_FILES['image']['name'];
             if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) {
                 //deuxieme requete : Création de l'histoire dans la BDD
-                $sqlVerif = "INSERT INTO paragraphe(parag_numero,id_histoire,parag_nom,parag_contenu,parag_image) VALUES (?,?,?,?,?)";
+                $sqlVerif = "INSERT INTO `paragraphe`(parag_numero,id_histoire,parag_nom,parag_contenu,parag_image) VALUES (?,?,?,?,?)";
                 $response = $BDD->prepare($sqlVerif);
                 $response->execute(array($numero_parag, $id_histoire, $titre_parag, $contenu_parag,$fichier));
 
@@ -39,6 +40,7 @@ if (isset($_POST["titre_parag0"]) )
         }
     }
     else{
+        echo "J'essaye d'insérer un paragraphe dans la BDD sans image";
         $sqlVerif = "INSERT INTO paragraphe(parag_numero,id_histoire,parag_nom,parag_contenu) VALUES (?,?,?,?)";
         $response = $BDD->prepare($sqlVerif);
         $response->execute(array($numero_parag, $id_histoire, $titre_parag, $contenu_parag));
