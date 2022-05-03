@@ -17,11 +17,14 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
     if ($n>0)
     {
         $_SESSION["doublon_histoire"] = true;
-        header('location: ../histoire_ajout.php');
-        exit();
+        //header('location: ../histoire_ajout.php');
+        //exit();
     }
-
-    if (!empty($_FILES["fileToUpload"]))
+    var_dump($_FILES["fileToUpload"]);
+    if($_FILES["fileToUpload"]["type"]==""){
+        echo " \n y a pas d'image ";
+    }
+    if (isset($_FILES["fileToUpload"])) // y a un gros souci ici
     {
         $image = basename($_FILES['fileToUpload']['name']);
         $dossier = '../images/';
@@ -62,8 +65,8 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
     }
 
     $_SESSION["ajout_hist"] = true;
-    header("Location: ../paragraphe_ajout.php");
-    exit();
+    //header("Location: ../paragraphe_ajout.php");
+    //exit();
 }
 else{?>
     <img src="../images/chat.jpg" alt="Tu t'es fait piégé eh oui !"/>
