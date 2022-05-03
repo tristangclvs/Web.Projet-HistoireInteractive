@@ -1,15 +1,13 @@
 <?php include("entete.php");
 
-$verif = "SELECT * FROM paragraphe WHERE id =?";
+$verif = "SELECT * FROM paragraphe WHERE parag_numero =? AND id_histoire = ?";
 $prep = $BDD -> prepare($verif);
-$prep-> execute(array($_GET['id']));
+$prep-> execute(array($_GET['id'],$_SESSION['id_histoire_enCours']));
 $ligne = $prep->fetch();
 //titre,categorie,auteur,annee,description,image
-
 ?>
 <div class="text-center"><h2><?=$ligne["parag_nom"]?></h2></div>
 <div class="container text-white border border-light rounded ">
-    <?php echo $ligne["parag_image"]; ?>
     <p class="p-3"><?=$ligne['parag_contenu'] ?> </p>
 </div>
 

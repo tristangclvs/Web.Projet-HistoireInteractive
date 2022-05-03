@@ -59,7 +59,7 @@ body {
     transform-style: preserve-3d;
     transform: translateZ(-35vw) rotateY(0);
     /*animation: animationCarousel 15s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;*/
-    transition: all 10s;
+    transition: all 5s;
 }
 #cards{
     transform: translateZ(-35vw) rotateY(0);

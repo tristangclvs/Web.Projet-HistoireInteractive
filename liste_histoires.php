@@ -15,7 +15,7 @@ if ($_SESSION["connected"]){
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-dark"><?=$ligne['titre'] ?> </h5>
-                        <p class="card-text text-dark"> <?=$ligne['description'] ?> </p>
+                        <p class="card-text text-dark"> <?=$ligne['description'] ?></p>
                     </div>
                     <div class="card-footer text-end">
                         <small class="text-muted"><?=$ligne['auteur'] ?>, <?=$ligne['annee'] ?></small>
@@ -24,7 +24,7 @@ if ($_SESSION["connected"]){
             </div>
         </div>
 
-        <?php     echo $ligne["titre"];
+        <?php
     }}  ?>
 
 <?php include("footer.php") ?>

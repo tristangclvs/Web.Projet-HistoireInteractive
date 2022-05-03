@@ -1,20 +1,21 @@
 <?php include("entete.php");
-
+/*
     $requete = "SELECT DISTINCT categorie FROM histoire";
     $resultat = $BDD -> query($requete);
     $n = $resultat -> rowCount();
 
     $tab = $resultat->fetchAll();
-
+*/
+$tab = ["Action", "Horreur", "Romantique"];
 ?>
 <div class="category-container text-center " >
     <div class="category-cards" id="cards">
 <?php
     if ($_SESSION["connected"]){
-    foreach ($tab as $key => $ligne) {
+    foreach ($tab as $key) {
     ?>
         <div class="category-cards-item bg-danger">
-            <h1> <?=$ligne["categorie"] ?></h1>
+            <h1> <?= $key?></h1>
         </div>
 <?php
 }}  ?>

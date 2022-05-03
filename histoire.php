@@ -13,9 +13,11 @@ $ligne = $prep->fetch();
 
 <div class="container">
     <div class="row">
+        <?php if ($ligne['image']!=NULL){ ?>
         <div class="col-md-5 col-sm-7 ml-2">
             <img class="img-fluid histoireImage w-30 h-30" src="images/<?=$ligne['image']?>" title="<?=$ligne['titre']?>" />
         </div>
+        <?php }?>
         <div class="col-md-7 col-sm-5 mr-2 pl-1">
             <h2><?=$ligne['titre']?></h2>
             <p><?=$ligne['auteur']?>, <?=$ligne['annee']?></p>
@@ -25,7 +27,7 @@ $ligne = $prep->fetch();
                 ?>
                 <br>
                 <div class="container">
-                    <button onclick="location.href='paragraphe.php?id=1'" type="button" class="btn btn-sucess btn-outline-light">Commencer l'histoire</button>
+                    <button onclick="location.href='paragraphe.php?id=1' <?php $_SESSION['id_histoire_enCours'] = $_GET['id'];?>" type="button" class="btn btn-sucess btn-outline-light">Commencer l'histoire</button>
                 </div>
             <?php }?>
         </div>

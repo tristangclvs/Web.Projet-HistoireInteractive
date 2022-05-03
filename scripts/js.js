@@ -1,4 +1,32 @@
 let cards = document.getElementById("cards");
+let category_cards_item = document.getElementsByClassName("category-cards-item");
+let actualRotate = 0;
+showAndHide(actualRotate);
+function showAndHide(actualRotate) {
+    if (actualRotate % 360 == 0) {
+        category_cards_item[0].firstElementChild.style.display = "block";
+        category_cards_item[1].firstElementChild.style.display = "none";
+        category_cards_item[2].firstElementChild.style.display = "none";
+        console.log("le if");
+    }
+    else{
+        category_cards_item[0].firstElementChild.style.display = "none";
+        category_cards_item[1].firstElementChild.style.display = "block";
+        category_cards_item[2].firstElementChild.style.display = "none";
+        console.log("le else");
+    }
+    /*
+    else if (actualRotate == 120) {
+        category_cards_item[0].firstElementChild.style.display = "none";
+        category_cards_item[1].firstElementChild.style.display = "block";
+        category_cards_item[2].firstElementChild.style.display = "none";
+    }
+    else if (actualRotate == 240) {
+        category_cards_item[0].firstElementChild.style.display = "none";
+        category_cards_item[1].firstElementChild.style.display = "block";
+        category_cards_item[2].firstElementChild.style.display = "none";
+    }*/
+}
 
 
 function carousel(){ //Fonction click carousel
@@ -23,7 +51,7 @@ function carousel(){ //Fonction click carousel
     cards.classList.add("active");
     console.log (cards.style.transform);
     let actualRotate = cards.style.transform.split(' '); //[1].split("(")[1].split("d")[0];
-    if (actualRotate.length!=1)
+    if (actualRotate.length!=1) // gérer l'exception à la première rotation
     {
         actualRotate = cards.style.transform.split(' ')[1].split("(")[1].split("d")[0];
     }
@@ -32,8 +60,10 @@ function carousel(){ //Fonction click carousel
         actualRotate = 0;
     }
     console.log(actualRotate);
-    cards.style.transform= (`translateZ(-35vw) rotateY(${parseInt(actualRotate)+120}deg)`);
+    cards.style.transform= (`translateZ(-35vw) rotateY(${parseInt(actualRotate)+(360/cards.childElementCount)}deg)`); //(actualRotate)+120
 //    cards.style.transform.replace(cards.style.transform.split(" ")[1],"translateX(10px)");
+    setTimeout(function ()  { showAndHide(actualRotate(360/cards.childElementCount)); },4850);
+    //setTimeout(function ()  { console.log(actualRotate); },4850);
 }
 let variable = 1;
 // Au clic du bouton on ajoute ...
