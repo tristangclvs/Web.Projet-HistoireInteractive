@@ -4,7 +4,7 @@
 if (isset($_SESSION["ajout_parag"])){
     if ($_SESSION["ajout_parag"]){
         ?>
-        <div class="alert alert-success text-center"><span style="font-weight: bold">Bravo ! </span>Le paragraphe n°<?=$_SESSION["numero_parag"]?> a été ajouté</div>
+        <div class="alert alert-success text-center"><span style="font-weight: bold">Bravo ! </span>Le paragraphe n°<?=$_SESSION["num_parag"]?> a été ajouté</div>
         <br>
         <?php
     }
@@ -68,7 +68,7 @@ $_SESSION["ajout_parag"] = false;
             <small id="poursuivreProchain" class="text-muted text_white">
                 Cliquer pour continuer ... </small>
             <br>
-            <button type="button" onclick='location.href="histoire.php?id=<?=$_GET['id']?>"' class="btn btn-danger text-white" id="button" aria-describedby="poursuivreDernier">Terminer l'histoire</button>
+            <button type="button" onclick='location.href="histoire.php?id=<?=$_SESSION["id_histoire"]?>"' class="btn btn-danger text-white" id="button" aria-describedby="poursuivreDernier">Terminer l'histoire</button>
 
             <!-- Dans le onclick de ce bouton, créer un fichier histoire qui affiche l'histoire -->
 
