@@ -1,10 +1,13 @@
 <?php include("entete.php");
 
+// Selectionne l'histoire
 $verif = "SELECT * FROM histoire WHERE id =?";
 $prep = $BDD -> prepare($verif);
 $prep-> execute(array($_GET['id']));
 $ligne = $prep->fetch();
 //titre,categorie,auteur,annee,description,image
+
+// Selectionne
 
 ?>
 
