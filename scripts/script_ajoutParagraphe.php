@@ -13,7 +13,7 @@ if (isset($_POST["titre_parag0"]) )
     $id_histoire = $_SESSION["id_histoire"];
     var_dump($_FILES["image"]);
     // Gestion de l'image après
-    if (!empty($_FILES["image"]))
+    if ($_FILES["image"]["type"]!="")
     {
         $image = basename($_FILES['image']['name']);
         $dossier = '../images/';
@@ -67,8 +67,8 @@ if (isset($_POST["titre_parag0"]) )
     }
     $_SESSION["num_parag"] = $numero_parag;
     $_SESSION["ajout_parag"] = true;
-    //header("Location: ../paragraphe_ajout.php");
-    //exit();
+    header("Location: ../paragraphe_ajout.php");
+    exit();
 
 
 }
