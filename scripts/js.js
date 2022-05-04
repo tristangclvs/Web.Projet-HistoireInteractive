@@ -1,7 +1,15 @@
 let cards = document.getElementById("cards");
 let category_cards_item = document.getElementsByClassName("category-cards-item");
 let actualRotate = 0;
-showAndHide(actualRotate);
+//premier effacement des titres
+let pageActuelle = location.href.split("/").pop();
+if (pageActuelle == 'liste_test.php'){
+    category_cards_item[0].firstElementChild.style.display = "block";
+    category_cards_item[1].firstElementChild.style.display = "none";
+    category_cards_item[2].firstElementChild.style.display = "none";
+
+}
+
 function showAndHide(actualRotate) {
     if (actualRotate % 360 == 0) {
         category_cards_item[0].firstElementChild.style.display = "block";
@@ -9,23 +17,26 @@ function showAndHide(actualRotate) {
         category_cards_item[2].firstElementChild.style.display = "none";
         console.log("le if");
     }
+    /*
     else{
         category_cards_item[0].firstElementChild.style.display = "none";
         category_cards_item[1].firstElementChild.style.display = "block";
         category_cards_item[2].firstElementChild.style.display = "none";
         console.log("le else");
-    }
-    /*
-    else if (actualRotate == 120) {
-        category_cards_item[0].firstElementChild.style.display = "none";
-        category_cards_item[1].firstElementChild.style.display = "block";
-        category_cards_item[2].firstElementChild.style.display = "none";
-    }
-    else if (actualRotate == 240) {
-        category_cards_item[0].firstElementChild.style.display = "none";
-        category_cards_item[1].firstElementChild.style.display = "block";
-        category_cards_item[2].firstElementChild.style.display = "none";
     }*/
+
+    else if (actualRotate % (360/cards.childElementCount)==0) {
+        category_cards_item[0].firstElementChild.style.display = "none";
+        category_cards_item[1].firstElementChild.style.display = "block";
+        category_cards_item[2].firstElementChild.style.display = "none";
+        console.log(2*(360/cards.childElementCount));
+    }
+    else if (actualRotate % (360/(2*cards.childElementCount))==0) {
+        console.log("2*(360/cards.childElementCount)")
+        category_cards_item[0].firstElementChild.style.display = "none";
+        category_cards_item[1].firstElementChild.style.display = "none";
+        category_cards_item[2].style.display = "block";
+    }
 }
 
 
@@ -62,9 +73,11 @@ function carousel(){ //Fonction click carousel
     console.log(actualRotate);
     cards.style.transform= (`translateZ(-35vw) rotateY(${parseInt(actualRotate)+(360/cards.childElementCount)}deg)`); //(actualRotate)+120
 //    cards.style.transform.replace(cards.style.transform.split(" ")[1],"translateX(10px)");
-    setTimeout(function ()  { showAndHide(actualRotate(360/cards.childElementCount)); },4850);
+    setTimeout(function ()  { showAndHide(actualRotate+(360/cards.childElementCount)); },4850);
     //setTimeout(function ()  { console.log(actualRotate); },4850);
 }
+
+
 let variable = 1;
 // Au clic du bouton on ajoute ...
 const bouton = document.getElementById('boutonAjoutLien');
@@ -124,6 +137,18 @@ function ajoutLien(){
     let divider = document.createElement("div");
     divider.classList.add("dropdown-divider","bg-light", "mb-3");
     divNouveauxLiens.appendChild(divider);
+}
+if (pageActuelle == 'paragraphe_ajout.php'){
+    let suiteParag = document.getElementById('suiteParag');
+    let choix = document.getElementById('choixSuite');
+    choix.addEventListener('change',()=>{
+        if (choix.value == "continuer"){
+            suiteParag.style.display = "block";
+        }
+        else{
+            suiteParag.style.display = "none";
+        }
+    })
 }
 
 

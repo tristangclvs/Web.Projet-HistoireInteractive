@@ -16,13 +16,22 @@ $requete = "SELECT * FROM lien WHERE id_parag_debut =? AND id_histoire=?";
 $prep = $BDD -> prepare($requete);
 $prep-> execute(array($_GET['id'], $_SESSION['id_histoire_enCours']));
 $tab = $prep->fetchAll();
-foreach ($tab as $key => $ligne) { ?>
+foreach ($tab as $key => $ligneLien) { ?>
 
-    <button onclick="location.href='paragraphe.php?id=<?=$ligne['id_parag_cible']?>'" type="button" class="btn btn-sucess btn-outline-primary"><?=$ligne['lien_nomaction']?></button>
+    <button onclick="location.href='paragraphe.php?id=<?=$ligneLien['id_parag_cible']?>'" type="button" class="btn btn-sucess btn-outline-primary"><?=$ligneLien['lien_nomaction']?></button>
 
 
     <?php
-}
+}}
+else if($ligne["suiteHistoire"] == "victoire")
+{?>
+    <button onclick="location.href='victoire.php'" type="button" class="btn btn-success btn-outline-primary">Continuer</button>
+
+<?php }
+else{ ?>
+
+    <button onclick="location.href='defaite.php'" type="button" class="btn btn-danger btn-outline-danger">Continuer</button>
+<?php }
 ?>
 
 <?php include("footer.php") ?>

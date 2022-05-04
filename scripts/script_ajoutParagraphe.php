@@ -4,6 +4,7 @@ session_start();
 include("connect.php");
 $nbPOSTS = 1;
 // Demander à Gabriel s'il faut vérifier tous les isset sachant qu'on est avec des required
+// Création du paragraphe dans la BDD
 if (isset($_POST["titre_parag0"]) )
 {
     // Variables

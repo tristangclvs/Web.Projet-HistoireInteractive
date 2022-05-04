@@ -31,7 +31,8 @@ $_SESSION["ajout_parag"] = false;
             </div>
             <div class="mb-3">
                 <label for="ParagContenu" class="form-label">Contenu</label>
-                <input type="textarea" name="contenu_parag" class="form-control" id="ParagContenu" placeholder="Contenu" required>
+                <!--<input type="textarea" name="contenu_parag" class="form-control" id="ParagContenu" placeholder="Contenu" required>-->
+                <textarea type="textarea" name="contenu_parag" class="form-control" id="ParagContenu" required></textarea>
             </div>
 
             <div class="mb-3 ">
@@ -41,30 +42,30 @@ $_SESSION["ajout_parag"] = false;
 
             <div class="dropdown-divider bg-light mb-3"></div>
 
+            <div id="suiteParag" style="display: block;">
+                <div class="mb-3">
+                    <label for="FormAction1" class="form-label">Nom de l'action </label>
+                    <input type="text" name="titre_parag1" class="form-control" id="FormAction1" placeholder="Nom de l'action" >
+                </div>
 
-            <div class="mb-3">
-                <label for="FormAction1" class="form-label">Nom de l'action </label>
-                <input type="text" name="titre_parag1" class="form-control" id="FormAction1" placeholder="Nom de l'action" required>
+                <div class="mb-3">
+                    <label for="ParagNumero1" class="form-label">Numéro du prochain paragraphe</label>
+                    <input type="number" name="numero_parag_cible1" class="form-control" id="ParagNumero1" placeholder="Numéro du paragraphe" >
+                </div>
+
+                <div class="dropdown-divider bg-light mb-3"></div>
+                <div id="nouveauxLiens">
+
+                </div>
+
+                <!--foreach pour compter le nombre de posts faits -->
+                <button type="button" class="btn btn-text-white" id="boutonAjoutLien" aria-describedby="poursuivreLien"><h2>+</h2></button>
+                <small id="poursuivreLien" class="text-muted text_white">
+                    Cliquer pour ajouter un nouveau lien ... </small>
             </div>
-
-            <div class="mb-3">
-                <label for="ParagNumero1" class="form-label">Numéro du prochain paragraphe</label>
-                <input type="number" name="numero_parag_cible1" class="form-control" id="ParagNumero1" placeholder="Numéro du paragraphe" required>
-            </div>
-
             <div class="dropdown-divider bg-light mb-3"></div>
-            <div id="nouveauxLiens">
 
-            </div>
-
-            <!--foreach pour compter le nombre de posts faits -->
-            <button type="button" class="btn btn-text-white" id="boutonAjoutLien" aria-describedby="poursuivreLien"><h2>+</h2></button>
-            <small id="poursuivreLien" class="text-muted text_white">
-                Cliquer pour ajouter un nouveau lien ... </small>
-
-            <div class="dropdown-divider bg-light mb-3"></div>
-
-            <button type="submit" class="btn btn-success text-white" id="button" aria-describedby="poursuivreProchain">Ajout du prochain paragraphe</button>
+            <button type="submit" class="btn btn-success text-white mb-2" id="button" aria-describedby="poursuivreProchain">Ajout du prochain paragraphe</button>
             <small id="poursuivreProchain" class="text-muted text_white">
                 Cliquer pour continuer ... </small>
             <br>

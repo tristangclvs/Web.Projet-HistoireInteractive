@@ -22,7 +22,7 @@ if (isset($_SESSION["doublon_histoire"])){
             </div>
             <div class="mb-3 form-group">
                 <label for="choixCategories" class="form-label">Catégorie de l'histoire</label>
-                <select name="categorie" id="choixCategories" class="form-control text-dark">
+                <select name="categorie" id="choixCategories" class="form-select text-dark" style="color: black !important;">
                     <option value="horreur">Horreur</option>
                     <option value="romantique">Romantique</option>
                     <option value="action">Action</option>

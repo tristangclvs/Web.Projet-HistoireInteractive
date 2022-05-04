@@ -5,16 +5,24 @@ $n = $resultat -> rowCount();
 
 $tab = $resultat->fetchAll();
 
+?>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <?php
+    if ($_SESSION["connected"]){
+        foreach ($tab as $key => $ligne) {
+            ?>
 
-if ($_SESSION["connected"]){
-    foreach ($tab as $key => $ligne) {
-        ?>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col ">
                 <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
+                    <?php if ($ligne['image'] != null){ ?>
+                        <img src="images/<?=$ligne['image']?>" class="card-img-top" alt="...">
+                    <?php }
+                    else{?>
+                        <img src="images/book.png" class="card-img-top" alt="...">
+                    <?php } ?>
                     <div class="card-body">
-                        <h5 class="card-title text-dark"><?=$ligne['titre'] ?> </h5>
+
+                        <h5 class="card-title text-dark"><a href="histoire.php?id=<?=$ligne['id'] ?>"> <?=$ligne['titre'] ?> </a></h5>
                         <p class="card-text text-dark"> <?=$ligne['description'] ?></p>
                     </div>
                     <div class="card-footer text-end">
@@ -22,11 +30,11 @@ if ($_SESSION["connected"]){
                     </div>
                 </div>
             </div>
-        </div>
 
-        <?php
-    }}  ?>
 
+            <?php
+        }}  ?>
+</div>
 <?php include("footer.php") ?>
 
 
