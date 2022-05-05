@@ -41,6 +41,15 @@ $_SESSION["ajout_parag"] = false;
             </div>
 
             <div class="dropdown-divider bg-light mb-3"></div>
+            <!-- C'est ici -->
+            <div class="mb-3 form-group">
+                <label for="choixSuite" class="form-label">Suite de l'histoire: </label>
+                <select name="ajoutOuNon" id="choixSuite" class="form-select text-dark">
+                    <option value="continuer" selected>Continuer</option>
+                    <option value="victoire">Victoire</option>
+                    <option value="defaite">Défaite</option>
+                </select>
+            </div>
 
             <div id="suiteParag" style="display: block;">
                 <div class="mb-3">
@@ -69,7 +78,7 @@ $_SESSION["ajout_parag"] = false;
             <small id="poursuivreProchain" class="text-muted text_white">
                 Cliquer pour continuer ... </small>
             <br>
-            <button type="button" onclick='location.href="histoire.php?id=<?=$_SESSION["id_histoire"]?>"' class="btn btn-danger text-white" id="button" aria-describedby="poursuivreDernier">Terminer l'histoire</button>
+            <button type="button" onclick='<?php $_SESSION["finHistoire"]=true; ?>;' class="btn btn-danger text-white" id="button" aria-describedby="poursuivreDernier">Terminer l'histoire</button>
 
             <!-- Dans le onclick de ce bouton, créer un fichier histoire qui affiche l'histoire -->
 

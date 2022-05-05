@@ -7,6 +7,8 @@ if (isset($_SESSION["doublon_histoire"])){
         $_SESSION["doublon_histoire"] = false;
     }
 }
+if($_SESSION["connected"]){
+
 ?>
 <!-- Si il n'est pas connecté, il ne peut accéder a cette page-->
 
@@ -34,14 +36,14 @@ if (isset($_SESSION["doublon_histoire"])){
             </div>
             <div class="mb-3">
                 <label for="TextAnnee" class="form-label">Année de parution</label>
-                <input type="number" name="annee" class="form-control" id="TextAnnee" placeholder="Annee"  required>
+                <input type="number" name="annee" class="form-control" id="TextAnnee" placeholder="Annee" value="<?php $year = date("Y"); echo $year?>" required>
             </div>
             <div class="mb-3">
                 <label for="TextDescription" class="form-label">Description</label>
                 <textarea type="text" name="description" class="form-control" id="TextDescription" required></textarea>
             </div>
             <div class="mb-3 ">
-                <label for="TextImage" class="form-label custom-file-label">Image <small>(facultatif)</small></label>
+                <label for="TextImage" class="form-label custom-file-label">Image <small>(facultative)</small></label>
                 <input type="file" name="fileToUpload" class="form-control custom-file-input" id="TextImage">
             </div>
 
@@ -53,7 +55,8 @@ if (isset($_SESSION["doublon_histoire"])){
         </form>
     </fieldset>
 </div>
-
+<?php
+} ?>
 
 
 <?php include("footer.php")?>

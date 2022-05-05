@@ -12,6 +12,7 @@ $ligne = $prep->fetch();
 </div>
 
 <?php
+if($ligne["suiteHistoire"] == "continuer"){
 $requete = "SELECT * FROM lien WHERE id_parag_debut =? AND id_histoire=?";
 $prep = $BDD -> prepare($requete);
 $prep-> execute(array($_GET['id'], $_SESSION['id_histoire_enCours']));
@@ -33,5 +34,7 @@ else{ ?>
     <button onclick="location.href='defaite.php'" type="button" class="btn btn-danger btn-outline-danger">Continuer</button>
 <?php }
 ?>
+
+
 
 <?php include("footer.php") ?>

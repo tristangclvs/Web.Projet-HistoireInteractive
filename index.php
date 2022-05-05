@@ -5,7 +5,7 @@
 
 
 
-<img src="images/Accueil.png" alt="Description" class="mx-auto d-block">
+<img src="images/Accueil.png" alt="Bienvenue à Fantastic Stories, l'histoire dont VOUS êtes le héros" class="mx-auto d-block">
 
 
 <?php include("footer.php") ?>
