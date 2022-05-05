@@ -30,7 +30,7 @@ if (isset($_POST["titre_parag0"]) )
             $fichier = $_FILES['image']['name'];
             if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) {
                 //deuxieme requete : Création de l'histoire dans la BDD
-                $sqlVerif = "INSERT INTO `paragraphe`(parag_numero,id_histoire,parag_nom,parag_contenu,parag_image,suiteHistoire) VALUES (?,?,?,?,?)";
+                $sqlVerif = "INSERT INTO `paragraphe`(parag_numero,id_histoire,parag_nom,parag_contenu,parag_image,suiteHistoire) VALUES (?,?,?,?,?,?)";
                 $response = $BDD->prepare($sqlVerif);
                 $response->execute(array($numero_parag, $id_histoire, $titre_parag, $contenu_parag,$fichier,$suite));
 
@@ -41,7 +41,7 @@ if (isset($_POST["titre_parag0"]) )
         }
     }
     else{
-        $sqlVerif = "INSERT INTO paragraphe(parag_numero,id_histoire,parag_nom,parag_contenu,suiteHistoire) VALUES (?,?,?,?)";
+        $sqlVerif = "INSERT INTO paragraphe(parag_numero,id_histoire,parag_nom,parag_contenu,suiteHistoire) VALUES (?,?,?,?,?)";
         $response = $BDD->prepare($sqlVerif);
         $response->execute(array($numero_parag, $id_histoire, $titre_parag, $contenu_parag,$suite));
     }
@@ -53,12 +53,12 @@ if (isset($_POST["titre_parag0"]) )
         }
 
         $nbPOSTSSupp = $nbPOSTS - 6;
-        for($i=0;$i<$nbPOSTSSupp;$i++)
+        for($i=1;$i<$nbPOSTSSupp;$i++)
         {
-            $suiv = $i+1;
+            //$suiv = $i+1;
             // Ajout dans la table lien
             $nom_action =$_POST["titre_parag$i"];
-            $id_parag_cible = $_POST["numero_parag_cible$suiv"];
+            $id_parag_cible = $_POST["numero_parag_cible$i"];
             // Ajout du lien seulement si les infos sont remplies
             if($id_parag_cible!="" && $nom_action!=""){
                 $sqlVerif = "INSERT INTO lien(id_parag_debut,id_parag_cible,lien_nomaction,id_histoire) VALUES (?,?,?,?)";
