@@ -78,7 +78,7 @@ $_SESSION["ajout_parag"] = false;
             <small id="poursuivreProchain" class="text-muted text_white">
                 Cliquer pour continuer ... </small>
             <br>
-            <button type="button" onclick='<?php $_SESSION["finHistoire"]=true; ?>;' class="btn btn-danger text-white" id="button" aria-describedby="poursuivreDernier">Terminer l'histoire</button>
+            <button type="submit" onclick='<?php $_SESSION["finHistoire"]=true; ?>;' class="btn btn-danger text-white" id="button" aria-describedby="poursuivreDernier">Terminer l'histoire</button>
 
             <!-- Dans le onclick de ce bouton, créer un fichier histoire qui affiche l'histoire -->
 
@@ -88,6 +88,5 @@ $_SESSION["ajout_parag"] = false;
     </fieldset>
 </div>
 
-
-
+<?php $_SESSION["finHistoire"]=false; ?>
 <?php include("footer.php")?>

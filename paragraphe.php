@@ -6,6 +6,7 @@ $prep-> execute(array($_GET['id'],$_SESSION['id_histoire_enCours']));
 $ligne = $prep->fetch();
 //titre,categorie,auteur,annee,description,image
 ?>
+
 <div class="text-center"><h2><?=$ligne["parag_nom"]?></h2></div>
 <div class="container text-white  ">
     <div class="row">

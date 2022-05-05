@@ -15,7 +15,7 @@ $ligne = $prep->fetch();
     <div class="row">
         <?php if ($ligne['image']!=NULL){ ?>
         <div class="col-md-5 col-sm-7 ml-2">
-            <img class="img-fluid histoireImage w-30 h-30" src="images/<?=$ligne['image']?>" title="<?=$ligne['titre']?>" />
+            <img class="img-fluid histoireImage w-30 h-30" src="images/<?=$ligne['image']?>" alt="<?=$ligne['titre']?>" />
         </div>
         <?php }?>
         <div class="col-md-7 col-sm-5 mr-2 pl-1">
