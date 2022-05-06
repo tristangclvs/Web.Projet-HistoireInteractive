@@ -7,6 +7,8 @@ $ligne = $prep->fetch();
 //titre,categorie,auteur,annee,description,image
 ?>
 
+<?php
+if ($_SESSION["connected"]){ ?>
 <div class="text-center"><h2><?=$ligne["parag_nom"]?></h2></div>
 <div class="container text-white  ">
     <div class="row">
@@ -49,4 +51,6 @@ $ligne = $prep->fetch();
 </div>
 
 
-<?php include("footer.php") ?>
+<?php }
+
+include("footer.php") ?>
