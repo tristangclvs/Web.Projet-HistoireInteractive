@@ -5,7 +5,14 @@ $verif = "SELECT * FROM histoire WHERE id =?";
 $prep = $BDD -> prepare($verif);
 $prep-> execute(array($_GET['id']));
 $ligne = $prep->fetch();
-//titre,categorie,auteur,annee,description,image
+
+// Selectionne le paragraphe
+$verif_parag = "SELECT * FROM `paragraphe` WHERE id_histoire =?";
+$prep_parag = $BDD -> prepare($verif_parag);
+$prep_parag-> execute(array($_GET['id']));
+$ligne_parag = $prep_parag->fetch();
+
+$_SESSION['id_histoire_enCours'] = $_GET['id'];
 
 // Selectionne
 
@@ -25,14 +32,14 @@ $ligne = $prep->fetch();
                 </h2>
                 <br>
                 <div class="container">
-                    <button onclick="location.href='paragraphe.php?id=1' <?php $_SESSION['id_histoire_enCours'] = $_GET['id'];?>" type="button" class="btn btn-outline-light">Commencer l'histoire</button>
+                    <button onclick="location.href='paragraphe.php?id=<?=$ligne_parag['id']?>'" type="button" class="btn btn-outline-light">Commencer l'histoire</button>
                     <?php if ($_SESSION["admin"] == 1){?>
                         <br>
                         <br>
                         <hr>
                         <div class="container d-flex justify-content-center p-0">
-                            <button type="button" class="btn btn-outline-warning me-3">Modifier l'histoire</button>
-                            <button type="button" class="btn btn-outline-danger ms-3">Supprimer l'histoire</button>
+                            <button type="button" onclick="location.href='histoire_modif.php?id=<?=$_GET['id']?>" class="btn btn-outline-warning me-3">Modifier l'histoire</button>
+                            <button type="button" onclick="location.href='scripts/script_suppression_hist.php?id=<?=$_GET['id']?>" class="btn btn-outline-danger ms-3">Supprimer l'histoire</button>
                         </div>
                     <?php }?>
                 </div>

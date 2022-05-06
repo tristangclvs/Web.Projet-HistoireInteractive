@@ -4,8 +4,22 @@ $resultat = $BDD -> query($requete);
 $n = $resultat -> rowCount();
 
 $tab = $resultat->fetchAll();
+if (isset($_SESSION['suppresion_hist'])){
+    if ($_SESSION['suppresion_hist']){
+        ?>
+        <div class="alert alert-danger text-center"><span style="font-weight: bold">Bravo ! </span>L'histoire a bien été supprimée</div>
+        <br>
+        <?php
+    }
+}
+$_SESSION['suppresion_hist'] = false;
+?>
+
 
 ?>
+
+
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <?php
     if ($_SESSION["connected"]){
