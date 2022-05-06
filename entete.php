@@ -12,6 +12,9 @@ if (!isset($_SESSION["inscription"])){
 if (!isset($_SESSION["erreur_connexionMDP"])){
     $_SESSION["erreur_connexionMDP"] = false;
 }
+if (!isset($_SESSION["doublonPseudo"])){
+    $_SESSION["doublonPseudo"] = false;
+}
 include("scripts/connect.php");
 ?>
 

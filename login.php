@@ -5,7 +5,7 @@
 }
 else if($_SESSION["erreur_connexionMDP"]){
         echo '<div class="alert alert-danger text-center"><span style="font-weight: bold">Erreur ! </span>Mot de passe incorrect.</div><br>';
-    $_SESSION["erreur_connexion"] = false;
+    $_SESSION["erreur_connexionMDP"] = false;
 }
 
 if ($_SESSION["inscription"]){ ?>

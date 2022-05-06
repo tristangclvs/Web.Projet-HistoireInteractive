@@ -20,18 +20,21 @@ if (isset($_POST["usrName"]) && isset($_POST["usrPass"])) {
         exit();
     }
 
-    else if(password_verify($ligne["password"], $hash)){
+    else if(password_verify($hash,$ligne["password"])){
         echo "la personne est bien connectée";
         $_SESSION["nomUtilisateur"] = $ligne['prenom'];
         $_SESSION["admin"] = $ligne["admin"];
         $_SESSION["connected"]  = true;
-        header('location: ../index.php');
+        //header('location: ../index.php');
+        exit();
     }
     else{
+        echo "mdp incorrect";
         $_SESSION["connected"] = false;
         $_SESSION["erreur_connexionMDP"] = true;
 
         header('location: ../login.php');
+        //exit();
     }
 
 }
