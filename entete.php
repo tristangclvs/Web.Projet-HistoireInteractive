@@ -9,6 +9,9 @@ if (!isset($_SESSION["erreur_connexion"])) {
 if (!isset($_SESSION["inscription"])){
     $_SESSION["inscription"] = false;
 }
+if (!isset($_SESSION["erreur_connexionMDP"])){
+    $_SESSION["erreur_connexionMDP"] = false;
+}
 include("scripts/connect.php");
 ?>
 

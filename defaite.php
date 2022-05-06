@@ -2,7 +2,7 @@
 
 <br>
 <br>
-<img src="images/test.png" alt="logo défaite" class="pound mx-auto d-block"/>
+<img src="images/test2.png" alt="logo défaite" class="zoomer mx-auto d-block"/>
 
 <div class="text-center">
     <button type="button" onclick="location.href='liste_histoires.php'" class="btn btn-success text-white mb-2" id="button">Retour à la liste des histoires</button>

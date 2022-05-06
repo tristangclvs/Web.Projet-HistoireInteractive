@@ -8,15 +8,18 @@ $nbPOSTS = 1;
 if (isset($_POST["titre_parag0"]) )
 {
     // Variables
-    $titre_parag =$_POST["titre_parag0"];
-    $numero_parag = $_POST["numero_parag0"];
-    $contenu_parag = $_POST["contenu_parag"];
-    $id_histoire = $_SESSION["id_histoire"];
+    $titre_parag = htmlspecialchars($_POST["titre_parag0"], ENT_QUOTES, 'UTF-8', false);
+    $numero_parag =  htmlspecialchars($_POST["numero_parag0"], ENT_QUOTES, 'UTF-8', false);
+    $contenu_parag = htmlspecialchars($_POST["contenu_parag"], ENT_QUOTES, 'UTF-8', false);
+
+
     $suite = $_POST["ajoutOuNon"];
+
     // Gestion de l'image après
     if ($_FILES["image"]["type"]!="")
     {
         $image = basename($_FILES['image']['name']);
+        $suite = $_POST["ajoutOuNon"]; // ajout si continuer, non sinon
         $dossier = '../images/';
         $extensions = array('.png', '.gif', '.jpg', '.jpeg');
         $extension = strrchr($_FILES['image']['name'], '.');
@@ -27,7 +30,7 @@ if (isset($_POST["titre_parag0"]) )
         if(!isset($erreur))
         {
             //deuxieme requete : Création de l'histoire dans la BDD
-            $fichier = $_FILES['image']['name'];
+            $fichier = htmlspecialchars($image, ENT_QUOTES, 'UTF-8', false);
             if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) {
                 //deuxieme requete : Création de l'histoire dans la BDD
                 $sqlVerif = "INSERT INTO `paragraphe`(parag_numero,id_histoire,parag_nom,parag_contenu,parag_image,suiteHistoire) VALUES (?,?,?,?,?,?)";
@@ -57,8 +60,8 @@ if (isset($_POST["titre_parag0"]) )
         {
             //$suiv = $i+1;
             // Ajout dans la table lien
-            $nom_action =$_POST["titre_parag$i"];
-            $id_parag_cible = $_POST["numero_parag_cible$i"];
+            $nom_action =htmlspecialchars($_POST["titre_parag$i"], ENT_QUOTES, 'UTF-8', false);
+            $id_parag_cible = htmlspecialchars($_POST["numero_parag_cible$i"], ENT_QUOTES, 'UTF-8', false);
             // Ajout du lien seulement si les infos sont remplies
             if($id_parag_cible!="" && $nom_action!=""){
                 $sqlVerif = "INSERT INTO lien(id_parag_debut,id_parag_cible,lien_nomaction,id_histoire) VALUES (?,?,?,?)";
@@ -71,6 +74,7 @@ if (isset($_POST["titre_parag0"]) )
 
     $_SESSION["num_parag"] = $numero_parag;
     $_SESSION["ajout_parag"] = true;
+
     if($_SESSION["finHistoire"]==true){
         $_SESSION["finHistoire"]=false;
         header("Location: ../histoire.php?id=$id_histoire.php");
@@ -83,5 +87,5 @@ if (isset($_POST["titre_parag0"]) )
 }
 else
 {?>
-    <img src="../images/chat.png" alt="Tu t'es fais piégé"/>
+    <img src="../images/chat.png" alt="Tu t'es fais piéger"/>
 <?php } ?>

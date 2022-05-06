@@ -3,11 +3,17 @@
     echo '<div class="alert alert-danger text-center"><span style="font-weight: bold">Erreur ! </span>Utilisateur non reconnu.</div><br>';
     $_SESSION["erreur_connexion"] = false;
 }
+else if($_SESSION["erreur_connexionMDP"]){
+        echo '<div class="alert alert-danger text-center"><span style="font-weight: bold">Erreur ! </span>Mot de passe incorrect.</div><br>';
+    $_SESSION["erreur_connexion"] = false;
+}
+
 if ($_SESSION["inscription"]){ ?>
     <div class="alert alert-success text-center"><span style="font-weight: bold">Inscription réussie ! </span></div><br>
     <?php
     $_SESSION["inscription"] = false;
 }
+
 if (!$_SESSION["connected"]){
     ?>
     <div class="text-center text-white"><h2>Connexion</h2></div>

@@ -4,11 +4,12 @@ include("connect.php");
 
 if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteur"]) && isset($_POST["annee"]) && isset($_POST["description"]))
 {
-    $histTitre = $_POST['titre'];
-    $histCategorie = $_POST['categorie'];
-    $histAuteur = $_POST['auteur'];
-    $histAnnee = $_POST['annee'];
-    $histDescription = $_POST['description'];
+    $histTitre = htmlspecialchars( $_POST['titre'], ENT_QUOTES, 'UTF-8', false);
+    $histCategorie = htmlspecialchars( $_POST['categorie'], ENT_QUOTES, 'UTF-8', false);
+    $histAuteur = htmlspecialchars( $_POST['auteur'], ENT_QUOTES, 'UTF-8', false);
+    $histAnnee = htmlspecialchars( $_POST['annee'], ENT_QUOTES, 'UTF-8', false);
+    $histDescription = htmlspecialchars( $_POST['description'], ENT_QUOTES, 'UTF-8', false);
+
     //Première requête : Vérification de la non existence d'une histoire avec le même titre
     $requete = "SELECT * FROM histoire WHERE titre=?";
     $response = $BDD->prepare($requete);
@@ -65,6 +66,6 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
     header("Location: ../paragraphe_ajout.php");
     exit();
 }
-else{?>
-    <img src="../images/chat.jpg" alt="Tu t'es fait piégé eh oui !"/>
-<?php }?>
+else{
+    header("Location: ../paragraphe_ajout.php");
+}

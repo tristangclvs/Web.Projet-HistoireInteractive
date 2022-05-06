@@ -32,14 +32,25 @@ $_SESSION['id_histoire_enCours'] = $_GET['id'];
                 </h2>
                 <br>
                 <div class="container">
-                    <button onclick="location.href='paragraphe.php?id=<?=$ligne_parag['id']?>'" type="button" class="btn btn-outline-light">Commencer l'histoire</button>
+                    <button onclick="location.href='paragraphe.php?id=<?=$ligne_parag['parag_numero']?>'" type="button" class="btn btn-outline-light">Commencer l'histoire</button>
                     <?php if ($_SESSION["admin"] == 1){?>
                         <br>
                         <br>
                         <hr>
                         <div class="container d-flex justify-content-center p-0">
-                            <button type="button" onclick="location.href='histoire_modif.php?id=<?=$_GET['id']?>" class="btn btn-outline-warning me-3">Modifier l'histoire</button>
-                            <button type="button" onclick="location.href='scripts/script_suppression_hist.php?id=<?=$_GET['id']?>" class="btn btn-outline-danger ms-3">Supprimer l'histoire</button>
+                            <form action="histoire_modif.php?id=<?=$_GET['id']?>" method="post">
+                                <button type="submit" class="btn btn-outline-warning me-3">Modifier l'histoire</button>
+                            </form>
+                            <form action="liste_paragraphe.php?id=<?=$_GET['id']?>" method="post">
+                                <button type="submit" class="btn btn-outline-info mx-3">Modifier les paragraphes</button>
+                            </form>
+                            <form action="scripts/script_suppression_hist.php?id=<?=$_GET['id']?>" method="post">
+                                <button type="submit" class="btn btn-outline-danger ms-3">Supprimer l'histoire</button>
+                            </form>
+
+
+
+
                         </div>
                     <?php }?>
                 </div>
