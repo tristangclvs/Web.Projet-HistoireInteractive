@@ -1,6 +1,7 @@
 <?php include("entete.php") ?>
 
 <?php
+if($_SESSION['connected']){
 if (isset($_SESSION["ajout_parag"])){
     if ($_SESSION["ajout_parag"]){
         ?>
@@ -89,4 +90,5 @@ $_SESSION["ajout_parag"] = false;
 </div>
 
 <?php $_SESSION["finHistoire"]=false; ?>
-<?php include("footer.php")?>
+<?php }
+include("footer.php")?>
