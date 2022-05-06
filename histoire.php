@@ -15,6 +15,13 @@ $ligne_parag = $prep_parag->fetch();
 $_SESSION['id_histoire_enCours'] = $_GET['id'];
 
 // Selectionne
+if (isset($_SESSION["modif_hist"])){
+    if ($_SESSION["modif_hist"]) { ?>
+        <div class="alert alert-success text-center"><span style="font-weight: bold">Bravo ! </span>L'histoire a été modifiée avec succès !</div><br>
+        <?php
+        $_SESSION["modif_hist"] = false;
+    }
+}
 
 ?>
 <?php if($_SESSION["connected"]){?>

@@ -1,10 +1,10 @@
 <?php
-error_log(-1);
 session_start();
 include("connect.php");
 $nbPOSTS = 1;
 // Demander à Gabriel s'il faut vérifier tous les isset sachant qu'on est avec des required
 // Création du paragraphe dans la BDD
+$id_histoire = $_SESSION["id_histoire"];
 if (isset($_POST["titre_parag0"]) )
 {
     // Variables
@@ -77,7 +77,7 @@ if (isset($_POST["titre_parag0"]) )
 
     if($_SESSION["finHistoire"]==true){
         $_SESSION["finHistoire"]=false;
-        header("Location: ../histoire.php?id=$id_histoire.php");
+        header('Location: ../histoire.php?id='.$id_histoire);
     }
     else{
         header("Location: ../paragraphe_ajout.php");

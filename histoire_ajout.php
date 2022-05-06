@@ -49,7 +49,7 @@ if($_SESSION["connected"]){
 
             <div class="dropdown-divider bg-light mb-3"></div>
 
-            <button type="submit" class="btn text-white" id="button" aria-describedby="poursuivre">Ajout de l'histoire</button>
+            <button type="submit" class="btn text-white" id="button" aria-describedby="poursuivre">Ajout de l'histoire</button><br>
             <small id="poursuivre" class="text-muted text_white" >
                 Poursuivre l'ajout de l'histoire ... </small>
         </form>
