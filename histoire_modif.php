@@ -69,7 +69,11 @@ $ligne = $prep->fetch();
         </fieldset>
     </div>
 <?php
-} ?>
+}
+    else{?>
+        <div class="alert alert-danger text-center"><span style="font-weight: bold">Ceci est un panel administrateur ! Veuillez vous connecter !</div>
+        <br>
+   <?php }?>
 
 
 
