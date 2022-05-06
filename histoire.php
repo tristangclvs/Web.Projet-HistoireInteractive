@@ -22,7 +22,6 @@ if (isset($_SESSION["modif_hist"])){
         $_SESSION["modif_hist"] = false;
     }
 }
-
 ?>
 <?php if($_SESSION["connected"]){?>
     <div class="container">
