@@ -7,6 +7,7 @@ $prep = $BDD -> prepare($verif);
 $prep-> execute(array($_GET['id']));
 $ligne = $prep->fetch();
 
+if(isset($_GET['id'])){
     if($_SESSION["connected"] && $_SESSION['admin']==1){
 
     ?>
@@ -73,9 +74,5 @@ $ligne = $prep->fetch();
     else{?>
         <div class="alert alert-danger text-center"><span style="font-weight: bold">Ceci est un panel administrateur ! Veuillez vous connecter !</div>
         <br>
-   <?php }?>
-
-
-
-
-<?php include("footer.php")?>
+   <?php }}
+include("footer.php")?>
