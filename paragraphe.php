@@ -1,16 +1,17 @@
 <?php include("entete.php");
 
-if($_SESSION['connected']){
+if ($_SESSION["connected"]) {
+    if(isset($_GET['id']) && isset($_SESSION['id_histoire_enCours'])){
 
-$verif = "SELECT * FROM paragraphe WHERE parag_numero =? AND id_histoire = ?";
+
+    $verif = "SELECT * FROM paragraphe WHERE parag_numero =? AND id_histoire = ?";
 $prep = $BDD -> prepare($verif);
 $prep-> execute(array($_GET['id'],$_SESSION['id_histoire_enCours']));
 $ligne = $prep->fetch();
 //titre,categorie,auteur,annee,description,image
 ?>
 
-<?php
-if ($_SESSION["connected"]){ ?>
+
 <div class="text-center"><h2><?=$ligne["parag_nom"]?></h2></div>
 <div class="container text-white  ">
     <div class="row">
@@ -23,7 +24,7 @@ if ($_SESSION["connected"]){ ?>
         <div class="col-md-7 col-sm-5 mr-2 pl-1">
             <p class="p-3"><?=$ligne['parag_contenu'] ?> </p>
         </div>
-
+        <br>
         <div class="d-flex justify-content-around">
             <?php
             if($ligne["suiteHistoire"] == "continuer"){
@@ -53,5 +54,5 @@ if ($_SESSION["connected"]){ ?>
 </div>
 
 
-<?php }
+<?php }    }
 include("footer.php") ?>
