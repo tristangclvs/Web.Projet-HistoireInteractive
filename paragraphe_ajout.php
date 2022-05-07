@@ -20,7 +20,7 @@ $_SESSION["ajout_parag"] = false;
 <br>
 <div class="container mx-auto" id="containerConnexion" style="width:30%;">
     <fieldset class="border border-light border-2 rounded">
-        <form id="formParag" class="px-4 py-3" method="post" enctype="multipart/form-data" action="scripts/script_ajoutParagraphe.php">
+        <form id="formParag" class="px-4 py-3" method="post" enctype="multipart/form-data" action="scripts/script_ajoutParagraphe.php?finHistoire=0">
             <div class="mb-3">
                 <label for="FormTitre" class="form-label">Titre du paragraphe</label>
                 <input type="text" name="titre_parag0" class="form-control" id="FormTitreParag" placeholder="Titre du paragraphe" required>
@@ -74,16 +74,13 @@ $_SESSION["ajout_parag"] = false;
             </div>
             <div class="dropdown-divider bg-light mb-3"></div>
 
-            <button type="submit" class="btn btn-success text-white mb-2" id="button" aria-describedby="poursuivreProchain">Ajout du prochain paragraphe</button>
-            <small id="poursuivreProchain" class="text-muted text_white">
-                Cliquer pour continuer ... </small>
+            <button type="submit" formaction="scripts/script_ajoutParagraphe.php?finHistoire=0" class="btn btn-success text-white mb-2 button"  aria-describedby="poursuivreProchain">Ajout du prochain paragraphe</button>
+            <!--<small id="poursuivreProchain" class="text-muted text_white">
+                Cliquer pour continuer ... </small>-->
             <br>
-            <button type="submit" onclick='<?php $_SESSION["finHistoire"]=true; ?>;' class="btn btn-danger text-white" id="button" aria-describedby="poursuivreDernier">Terminer l'histoire</button>
-
-            <!-- Dans le onclick de ce bouton, créer un fichier histoire qui affiche l'histoire -->
-
-            <small id="poursuivreDernier" class="text-muted text_white">
-                Cliquer pour terminer ... </small>
+            <button type="submit" formaction="scripts/script_ajoutParagraphe.php?finHistoire=1" class="btn btn-danger text-white button" aria-describedby="poursuivreDernier">Terminer l'histoire</button>
+            <!--<small id="poursuivreDernier" class="text-muted text_white">
+                Cliquer pour terminer ... </small>-->
         </form>
     </fieldset>
 </div>

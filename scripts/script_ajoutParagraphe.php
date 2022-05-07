@@ -52,12 +52,15 @@ if (isset($_POST["titre_parag0"]) )
         foreach ($_POST as $key => $val)
         {
             $nbPOSTS++;
+            echo $nbPOSTS;
         }
 
         $nbPOSTSSupp = $nbPOSTS - 6;
-        for($i=1;$i<$nbPOSTSSupp;$i++)
+        echo 'nb de posts après les -6 :';
+        echo $nbPOSTSSupp;
+        for($i=0;$i<=$nbPOSTSSupp;$i++)
         {
-            //$suiv = $i+1;
+            echo ' Je rentre dans la boucle for';
             // Ajout dans la table lien
             $nom_action =htmlspecialchars($_POST["titre_parag$i"], ENT_QUOTES, 'UTF-8', false);
             $id_parag_cible = htmlspecialchars($_POST["numero_parag_cible$i"], ENT_QUOTES, 'UTF-8', false);
@@ -67,6 +70,7 @@ if (isset($_POST["titre_parag0"]) )
                 $sqlVerif = "INSERT INTO lien(id_parag_debut,id_parag_cible,lien_nomaction,id_histoire) VALUES (?,?,?,?)";
                 $response = $BDD->prepare($sqlVerif);
                 $response->execute(array($numero_parag,$id_parag_cible ,$nom_action , $id_histoire));
+                echo 'Le paragraphe a bien été ajouté';
             }
 
         }
@@ -75,9 +79,9 @@ if (isset($_POST["titre_parag0"]) )
     $_SESSION["num_parag"] = $numero_parag;
     $_SESSION["ajout_parag"] = true;
 
-    if($_SESSION["finHistoire"]==true){
-        $_SESSION["finHistoire"]=false;
+    if($_GET["finHistoire"]==1){
         header('Location: ../histoire.php?id='.$id_histoire);
+        exit();
     }
     else{
         header("Location: ../paragraphe_ajout.php");
