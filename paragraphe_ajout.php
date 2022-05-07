@@ -1,6 +1,8 @@
-<?php include("entete.php") ?>
+<?php include("entete.php");
 
-<?php
+if($_SESSION['connected']){
+
+    
 if($_SESSION['connected']){
 if (isset($_SESSION["ajout_parag"])){
     if ($_SESSION["ajout_parag"]){
