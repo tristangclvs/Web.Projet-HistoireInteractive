@@ -1,5 +1,7 @@
 <?php include("entete.php");
 
+if(isset($_GET['id'])){
+
 // Selectionne l'histoire
 $verif = "SELECT * FROM histoire WHERE id =?";
 $prep = $BDD -> prepare($verif);
@@ -64,11 +66,5 @@ if (isset($_SESSION["modif_hist"])){
         </div>
     </div>
 <?php }
-else {
-
-
-
-}?>
-
-<?php include("footer.php") ?>
+} include("footer.php") ?>
 
