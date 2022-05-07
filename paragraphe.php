@@ -1,5 +1,7 @@
 <?php include("entete.php");
 
+if($_SESSION['connected']){
+
 $verif = "SELECT * FROM paragraphe WHERE parag_numero =? AND id_histoire = ?";
 $prep = $BDD -> prepare($verif);
 $prep-> execute(array($_GET['id'],$_SESSION['id_histoire_enCours']));
@@ -52,5 +54,4 @@ if ($_SESSION["connected"]){ ?>
 
 
 <?php }
-
 include("footer.php") ?>
