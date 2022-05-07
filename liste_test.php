@@ -9,12 +9,12 @@
 $tab = ["Action", "Horreur", "Romantique"];
 ?>
 <div class="category-container text-center " >
-    <div class="category-cards" id="cards">
+    <div class="category-cards carousel" id="cards">
 <?php
     if ($_SESSION["connected"]){
     foreach ($tab as $key) {
     ?>
-        <div class="category-cards-item bg-danger">
+        <div class="category-cards-item  bg-danger">
             <h1> <?= $key?></h1>
         </div>
 <?php

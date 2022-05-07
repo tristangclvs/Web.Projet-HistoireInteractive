@@ -65,7 +65,7 @@ if(isset($_GET['id'])){
 
                 <div class="dropdown-divider bg-light mb-3"></div>
 
-                <button type="submit" class="btn text-white" id="button" aria-describedby="poursuivre">Modifier l'Histoire</button>
+                <button type="submit" class="btn text-white button"  aria-describedby="poursuivre">Modifier l'Histoire</button>
             </form>
         </fieldset>
     </div>

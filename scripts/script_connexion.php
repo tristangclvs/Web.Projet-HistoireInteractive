@@ -13,30 +13,26 @@ if (isset($_POST["usrName"]) && isset($_POST["usrPass"])) {
     $n = $response->rowCount();
     $ligne = $response->fetch();
 
-    if ($n==0) {
+    if ($n==0) {    // Aucun compte correspondant à ce pseudo
         $_SESSION["connected"] = false;
         $_SESSION["erreur_connexion"] = true;
         header('location: ../login.php');
-        exit();
     }
-
-    else if(password_verify($hash,$ligne["password"])){
+    else if(password_verify($usrPass,$ligne["password"])){
+        //bien connecté
         echo "la personne est bien connectée";
         $_SESSION["nomUtilisateur"] = $ligne['prenom'];
         $_SESSION["admin"] = $ligne["admin"];
         $_SESSION["connected"]  = true;
-        //header('location: ../index.php');
-        exit();
+        header('location: ../index.php');
     }
     else{
+        //utilisateur existant, mais mot de passe erroné.
         echo "mdp incorrect";
         $_SESSION["connected"] = false;
         $_SESSION["erreur_connexionMDP"] = true;
-
         header('location: ../login.php');
-        //exit();
     }
-
 }
 
 

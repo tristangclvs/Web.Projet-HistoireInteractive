@@ -21,12 +21,13 @@ if (isset($_POST["prenom"]) &&  isset($_POST["usrName"]) && isset($_POST["usrPas
 
         $_SESSION["inscription"] = true;
         $_SESSION["usrNameInscription"] = $usrName;
-
+        header('location: ../login.php');
     }
     else{
         $_SESSION["doublonPseudo"] = true;
+        header('location: ../inscription.php');
     }
-    header('location: ../login.php');
+
 }
 else{
     echo "Vous ne devriez pas être ici, oust.";

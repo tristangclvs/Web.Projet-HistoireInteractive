@@ -36,7 +36,6 @@ if (isset($_POST["titre_parag0"]) )
                 $sqlVerif = "INSERT INTO `paragraphe`(parag_numero,id_histoire,parag_nom,parag_contenu,parag_image,suiteHistoire) VALUES (?,?,?,?,?,?)";
                 $response = $BDD->prepare($sqlVerif);
                 $response->execute(array($numero_parag, $id_histoire, $titre_parag, $contenu_parag,$fichier,$suite));
-
             }
             else {
                 echo 'Echec de l\'upload !';
@@ -62,6 +61,7 @@ if (isset($_POST["titre_parag0"]) )
             // Ajout dans la table lien
             $nom_action =htmlspecialchars($_POST["titre_parag$i"], ENT_QUOTES, 'UTF-8', false);
             $id_parag_cible = htmlspecialchars($_POST["numero_parag_cible$i"], ENT_QUOTES, 'UTF-8', false);
+
             // Ajout du lien seulement si les infos sont remplies
             if($id_parag_cible!="" && $nom_action!=""){
                 $sqlVerif = "INSERT INTO lien(id_parag_debut,id_parag_cible,lien_nomaction,id_histoire) VALUES (?,?,?,?)";

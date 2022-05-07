@@ -15,7 +15,7 @@ $ligne = $prep->fetch();
 <div class="text-center"><h2><?=$ligne["parag_nom"]?></h2></div>
 <div class="container text-white  ">
     <div class="row">
-        <?php if ($ligne['parag_image']!=NULL){ ?>
+        <?php if ($ligne['parag_image']!=NULL){?>
             <div class="col-md-5 col-sm-7 ml-2">
                 <img class="img-fluid histoireImage w-30 h-30" src="images/<?=$ligne['parag_image']?>" alt="<?=$ligne['parag_nom']?>" />
             </div>
@@ -24,8 +24,8 @@ $ligne = $prep->fetch();
         <div class="col-md-7 col-sm-5 mr-2 pl-1">
             <p class="p-3"><?=$ligne['parag_contenu'] ?> </p>
         </div>
-        <br>
-        <div class="d-flex justify-content-around">
+
+        <div class="d-flex justify-content-around  mt-4">
             <?php
             if($ligne["suiteHistoire"] == "continuer"){
                 $requete = "SELECT * FROM lien WHERE id_parag_debut =? AND id_histoire=?";
@@ -45,7 +45,6 @@ $ligne = $prep->fetch();
 
             <?php }
             else{ ?>
-
                 <button onclick="location.href='defaite.php'" type="button" class="btn btn-outline-warning">Continuer</button>
             <?php }
             ?>

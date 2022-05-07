@@ -32,7 +32,7 @@ if($_SESSION['connected']){?>
 
                 <div class="dropdown-divider bg-light mb-3"></div>
 
-                <button type="submit" class="btn text-white mb-2" id="button">Modifier le paragraphe</button>
+                <button type="submit" class="btn text-white mb-2 button" >Modifier le paragraphe</button>
                 <br>
             </form>
         </fieldset>
