@@ -1,3 +1,8 @@
 import circlr from 'circlr';
 
-const el = document.getElementById('cards');
+const el = document.querySelector('.container');
+
+circlr(el)
+    .scroll(true)
+    .play()
+;

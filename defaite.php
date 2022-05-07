@@ -1,4 +1,20 @@
 <?php include("entete.php") ?>
+<?php
+// Selectionne l'histoire
+$verif = "SELECT * FROM histoire WHERE id =?";
+$prep = $BDD -> prepare($verif);
+$prep-> execute(array($_SESSION['id_histoire_enCours']));
+$ligne = $prep->fetch();
+$nbDefTot = $ligne["nb_defaites"] + 1;
+
+//Incrémenter le nombre de victoires
+$verif = "UPDATE histoire SET nb_defaites=? WHERE id =?";
+$prep = $BDD -> prepare($verif);
+$prep-> execute(array($nbDefTot, $_SESSION['id_histoire_enCours']));
+
+
+unset($_SESSION['id_histoire_enCours']);
+?>
 
 <br>
 <br>

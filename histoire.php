@@ -7,6 +7,9 @@ $verif = "SELECT * FROM histoire WHERE id =?";
 $prep = $BDD -> prepare($verif);
 $prep-> execute(array($_GET['id']));
 $ligne = $prep->fetch();
+$nbVictoires = $ligne['nb_victoires'];
+$nbDefaites = $ligne['nb_defaites'];
+
 
 // Selectionne le paragraphe
 $verif_parag = "SELECT * FROM `paragraphe` WHERE id_histoire =?";
@@ -40,10 +43,24 @@ if (isset($_SESSION["modif_hist"])){
                 </h2>
                 <br>
                 <div class="container">
-                    <button onclick="location.href='paragraphe.php?id=<?=$ligne_parag['parag_numero']?>'" type="button" class="btn btn-outline-light">Commencer l'histoire</button>
+                    <button onclick="location.href='paragraphe.php?id=<?=$ligne_parag['parag_numero']?>'" type="button" class="btn btn-outline-light mb-2">Commencer l'histoire</button>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-center" scope="col">Nombre de victoires</th>
+                            <th class="text-center" scope="col">Nombre de défaites</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center"><?=$nbVictoires?></td>
+                                <td class="text-center"><?=$nbDefaites?></td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <?php if ($_SESSION["admin"] == 1){?>
-                        <br>
-                        <br>
+
                         <hr>
                         <div class="container d-flex justify-content-center p-0">
                             <form action="histoire_modif.php?id=<?=$_GET['id']?>" method="post">
