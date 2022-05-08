@@ -75,12 +75,10 @@ $_SESSION["ajout_parag"] = false;
             <div class="dropdown-divider bg-light mb-3"></div>
 
             <button type="submit" formaction="scripts/script_ajoutParagraphe.php?finHistoire=0" class="btn btn-success text-white mb-2 button"  aria-describedby="poursuivreProchain">Ajout du prochain paragraphe</button>
-            <!--<small id="poursuivreProchain" class="text-muted text_white">
-                Cliquer pour continuer ... </small>-->
+
             <br>
             <button type="submit" formaction="scripts/script_ajoutParagraphe.php?finHistoire=1" class="btn btn-danger text-white button" aria-describedby="poursuivreDernier">Terminer l'histoire</button>
-            <!--<small id="poursuivreDernier" class="text-muted text_white">
-                Cliquer pour terminer ... </small>-->
+
         </form>
     </fieldset>
 </div>

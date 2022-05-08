@@ -151,18 +151,34 @@ body {
     transform-origin: bottom left;
     transform: scaleX(1) ;
 }
-.page1{
-    background-image: url('../images/book.png');
-    height: 100vh;
-    background-size: cover;
+
+/* Un peu d'accessibilité */
+input:focus
+{
+    outline: 6px solid #A86BF2FF !important;
+    background-color: #E09B9CFF !important;
+    font-size: larger;
+    font-weight: bold;
 }
-.page2{
-    background-image: url('../images/book.png');
-    height: 100vh;
-    background-size: cover;
+textarea:focus
+{
+    outline: 6px solid #A86BF2FF !important;
+    background-color: #E09B9CFF !important;
+    font-size: larger;
+    font-weight: bold;
 }
-.page3{
-    background-image: url('../images/book.png');
-    height: 100vh;
-    background-size: cover;
+select:focus
+{
+    outline: 6px solid #A86BF2FF !important;
+    background-color: #E09B9CFF !important;
+    font-size: larger;
+    color: black !important;
+    font-weight: bold;
+}
+option
+{
+    background-color: #E09B9CFF !important;
+    font-size: larger;
+    color: black !important;
+    font-weight: bold;
 }
