@@ -12,7 +12,7 @@ if($_SESSION["connected"] && $_SESSION['admin']==1){
     ?>
 
     <div class="container d-flex justify-content-center">
-        <table class="table">
+        <table class="table" >
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -26,7 +26,7 @@ if($_SESSION["connected"] && $_SESSION['admin']==1){
             <?php
             foreach ($tab as $key => $ligne) {
                 ?>
-                <tr>
+                <tr class="tableParag align-middle">
                     <td> <?=$ligne["parag_numero"]?> </td>
                     <td> <?=$ligne["parag_nom"]?> </td>
                     <td> <?=$ligne["parag_contenu"]?> </td>

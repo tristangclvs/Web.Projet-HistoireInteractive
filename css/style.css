@@ -151,6 +151,10 @@ body {
     transform-origin: bottom left;
     transform: scaleX(1) ;
 }
+.tableParag:nth-child(odd) {
+    background-color: #1D174C !important;
+}
+
 
 /* Un peu d'accessibilité */
 input:focus
