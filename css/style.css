@@ -179,22 +179,7 @@ body {
     position: relative;
 
 }
-/*
-#baliseb::before{
-    content : "";
-    position : absolute;
-    width : 50%;
-    height : 50%;
-    background-color: white;
 
-    transform : scaleX(0) ;
-    transform-origin: right;
-    transition : transform 0.25s ease-in;
-}
-#baliseb:hover::before {
-    transform-origin: left;
-    transform: scaleX(1) ;
-}*/
 
 /* Un peu d'accessibilité */
 input:focus
