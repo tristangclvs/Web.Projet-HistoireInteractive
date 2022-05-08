@@ -39,7 +39,8 @@ include("scripts/connect.php");
             <div class="col-5">
 
                 <p id="ppp">
-                    <img src="images/book.png" alt="book_logo" class="me-2" style="height: 48px; padding-bottom: 1%;">
+                    <a href="index.php">
+                    <img src="images/book.png" alt="book_logo" class="me-2" style="height: 48px; padding-bottom: 1%;"></a>
                     <a class="navbar-brand text-uppercase fw-bold" href="index.php" id="baliseb">
 
                         <!-- icon by Icongeek26 -->
