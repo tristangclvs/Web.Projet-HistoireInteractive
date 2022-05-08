@@ -36,12 +36,19 @@ include("scripts/connect.php");
 <header id="heads" class="py-4">
     <nav id="navb" class="navbar navbar-expand-md fixed-top navbar-dark " style="background-color: rgb(38,41,45);">
         <div class="container">
-            <div class="col-10">
-                <a class="navbar-brand text-uppercase fw-bold" href="index.php" id="baliseb">
+            <div class="col-5">
+
+                <p id="ppp">
                     <img src="images/book.png" alt="book_logo" class="me-2" style="height: 48px; padding-bottom: 1%;">
-                    <!-- icon by Icongeek26 -->
-                    <span class="bg-gradient bg-light p-1 rounded-3 text-dark" id="spanb">Fantastic</span> Stories
-                </a>
+                    <a class="navbar-brand text-uppercase fw-bold" href="index.php" id="baliseb">
+
+                        <!-- icon by Icongeek26 -->
+                        <span class="p-1 rounded-3 text-dark" id="spanB">Fantastic <span class=" rounded-3 text-white" id="spanC">&nbsp; Stories</span> </span> <span class="p-1 rounded-3 text-dark" id="spanA"></span>
+
+                    </a>
+                </p>
+
+
             </div>
             <div class="col-2">
                 <div class="dropdown">

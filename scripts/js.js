@@ -3,6 +3,8 @@ let category_cards_item = document.getElementsByClassName("category-cards-item")
 let actualRotate = 0;
 //premier effacement des titres
 let pageActuelle = location.href.split("/").pop();
+
+
 if (pageActuelle == 'liste_test.php'){
     category_cards_item[0].firstElementChild.style.display = "block";
     category_cards_item[1].firstElementChild.style.display = "none";
@@ -54,8 +56,8 @@ function carousel(){ //Fonction click carousel
         tan = sinB/cosB,
         d= Math.atan2(sinB, cosB),
         c = Math.atan(tan);
-       // b = Math.round(Math.asin(sinB) * 180 / pi);
-        //b = Math.atan2(sinB, cosB);
+    // b = Math.round(Math.asin(sinB) * 180 / pi);
+    //b = Math.atan2(sinB, cosB);
     console.log(c);
     console.log(b);
 
@@ -80,11 +82,13 @@ function carousel(){ //Fonction click carousel
 
 let variable = 1;
 // Au clic du bouton on ajoute ...
-const bouton = document.getElementById('boutonAjoutLien');
-bouton.addEventListener('click',(event)=>{
-    variable += 1;
-    ajoutLien();
-});
+if (pageActuelle == "paragraphe_ajout.php") {
+    const bouton = document.getElementById('boutonAjoutLien');
+    bouton.addEventListener('click', (event) => {
+        variable += 1;
+        ajoutLien();
+    });
+}
 
 function ajoutLien(){
     let formParag = document.getElementById("formParag");
@@ -151,4 +155,23 @@ if (pageActuelle == 'paragraphe_ajout.php'){
     })
 }
 
+let spanA = document.getElementById('spanA');
+let spanB = document.getElementById('spanB');
+let spanC = document.getElementById('spanC');
+let lienTitre = document.getElementById('baliseb');
+lienTitre.addEventListener("mouseover",()=>{
+    spanA.style.left = "115px";
+    spanA.style.width = "90px";
 
+    spanB.classList.replace("text-dark","text-white");
+
+    spanC.classList.replace("text-white","text-dark");
+})
+lienTitre.addEventListener("mouseout",()=>{
+    spanA.style.left = "0";
+    spanA.style.width = "113px";
+
+    spanB.classList.replace("text-white","text-dark");
+
+    spanC.classList.replace("text-dark","text-white");
+})

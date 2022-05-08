@@ -30,7 +30,7 @@ $_SESSION['suppresion_hist'] = false;
                         <img src="images/book.png" class="card-img-top" alt="...">
                     <?php } ?>
                     <div class="card-body">
-                        <h5 class="card-title text-dark "> <a class="linkHist" href="histoire.php?id=<?=$ligne['id'] ?>"> <?=$ligne['titre'] ?> </a></h5>
+                        <h5 class="card-title text-dark "> <a class="linkHist" href="histoire.php?id=<?=$ligne['id'] ?>"> <?=$ligne['titre'] ?></a></h5>
 
                         <p class="card-text text-dark"> <?=$ligne['description'] ?></p>
 
