@@ -1,5 +1,8 @@
-<?php include("entete.php") ?>
-<?php
+<?php include("entete.php") ;
+
+if(!isset($_SESSION['connected']) || !isset($_GET['id']) ){
+    header("Location: index.php");
+}
 // Selectionne l'histoire
 $verif = "SELECT * FROM histoire WHERE id =?";
 $prep = $BDD -> prepare($verif);
@@ -11,6 +14,12 @@ $nbVictTot = $ligne["nb_victoires"] + 1;
 $verif = "UPDATE histoire SET nb_victoires=? WHERE id =?";
 $prep = $BDD -> prepare($verif);
 $prep-> execute(array($nbVictTot, $_SESSION['id_histoire_enCours']));
+
+if(isset($_GET['id'])){
+    $requete = 'DELETE FROM marquePage WHERE id=?';
+    $response = $BDD->prepare($requete);
+    $response->execute(array($_GET['id']));
+}
 
 unset($_SESSION['id_histoire_enCours']);
 ?>

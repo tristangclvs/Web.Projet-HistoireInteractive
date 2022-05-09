@@ -24,3 +24,4 @@ if (isset($_GET["idHist"]) && isset($_GET["idParag"]))
     header("Location: ../paragraphe.php?id=$parag_numero");
     exit();
 }
+header("Location: ../index.php");

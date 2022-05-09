@@ -1,4 +1,5 @@
 <?php include("entete.php");
+$idMarquePage =0;
 
 if ($_SESSION["connected"]) {
     if(isset($_GET['id']) && isset($_SESSION['id_histoire_enCours'])){
