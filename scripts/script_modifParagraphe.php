@@ -53,5 +53,7 @@ if($_SESSION['connected'] && $_SESSION['admin']==1){
     header('Location: ../liste_paragraphe.php?id='.$id_histoire);
     exit();
 }
-$id_histoire =$_GET['numHist'];
-header('Location: ../liste_paragraphe.php?id='.$id_histoire);
+header('Location: ../index.php');
+
+
+

@@ -36,9 +36,8 @@ include("scripts/connect.php");
 <header id="heads" class="py-4">
     <nav id="navb" class="navbar navbar-expand-md fixed-top navbar-dark " style="background-color: rgb(38,41,45);">
         <div class="container">
-            <div class="col-5">
+            <div class="col-5 align-middle">
 
-                <p id="ppp">
                     <a href="index.php">
                     <img src="images/book.png" alt="book_logo" class="me-2" style="height: 48px; padding-bottom: 1%;"></a>
                     <a class="navbar-brand text-uppercase fw-bold" href="index.php" id="baliseb">

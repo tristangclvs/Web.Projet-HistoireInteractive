@@ -1,7 +1,9 @@
 <?php
 session_start();
 include("connect.php");
-$idHist = $_GET['id'];
+if(isset($_GET['id'])){
+    $idHist = $_GET['id'];
+}
 
 if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteur"]) && isset($_POST["annee"]) && isset($_POST["description"]))
 {

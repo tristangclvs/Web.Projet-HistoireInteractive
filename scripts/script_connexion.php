@@ -35,6 +35,10 @@ if (isset($_POST["usrName"]) && isset($_POST["usrPass"])) {
         header('location: ../login.php');
     }
 }
+else{
+    header('location: ../login.php');
+    exit();
+}
 
 
 

@@ -67,5 +67,5 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
     exit();
 }
 else{
-    header("Location: ../paragraphe_ajout.php");
+    header("Location: ../histoire_ajout.php");
 }

@@ -4,13 +4,14 @@ include("connect.php");
 $nbPOSTS = 1;
 // Demander à Gabriel s'il faut vérifier tous les isset sachant qu'on est avec des required
 // Création du paragraphe dans la BDD
-$id_histoire = $_SESSION["id_histoire"];
-if (isset($_POST["titre_parag0"]) )
-{
-    // Variables
-    $titre_parag = htmlspecialchars($_POST["titre_parag0"], ENT_QUOTES, 'UTF-8', false);
-    $numero_parag =  htmlspecialchars($_POST["numero_parag0"], ENT_QUOTES, 'UTF-8', false);
-    $contenu_parag = htmlspecialchars($_POST["contenu_parag"], ENT_QUOTES, 'UTF-8', false);
+if(isset($_SESSION["ajout_hist"])){
+    $id_histoire = $_SESSION["id_histoire"];
+    if (isset($_POST["titre_parag0"]) )
+    {
+        // Variables
+        $titre_parag = htmlspecialchars($_POST["titre_parag0"], ENT_QUOTES, 'UTF-8', false);
+        $numero_parag =  htmlspecialchars($_POST["numero_parag0"], ENT_QUOTES, 'UTF-8', false);
+        $contenu_parag = htmlspecialchars($_POST["contenu_parag"], ENT_QUOTES, 'UTF-8', false);
 
 
         $suite = $_POST["ajoutOuNon"];
@@ -79,16 +80,17 @@ if (isset($_POST["titre_parag0"]) )
         $_SESSION["num_parag"] = $numero_parag;
         $_SESSION["ajout_parag"] = true;
 
-    if($_GET["finHistoire"]==1){
-        header('Location: ../histoire.php?id='.$id_histoire);
-        exit();
-    }
-    else{
-        header("Location: ../paragraphe_ajout.php");
-        exit();
-    }
+        if($_GET["finHistoire"]==1){
+            unset($_SESSION["ajout_hist"]);
+            header('Location: ../histoire.php?id='.$id_histoire);
+            exit();
+        }
+        else{
+            header("Location: ../paragraphe_ajout.php");
+            exit();
+        }
 
-}
+    }}
 else
 {?>
     <img src="../images/chat.png" alt="Tu t'es fais piéger"/>
