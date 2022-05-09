@@ -160,9 +160,9 @@ let spanB = document.getElementById('spanB');
 let spanC = document.getElementById('spanC');
 let lienTitre = document.getElementById('baliseb');
 lienTitre.addEventListener("mouseover",()=>{
-    spanA.style.left = "115px";
-    spanA.style.width = "90px";
-
+    spanA.style.left = "118px";
+    spanA.style.width = "82px";
+    
     spanB.classList.replace("text-dark","text-white");
 
     spanC.classList.replace("text-white","text-dark");
