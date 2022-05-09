@@ -11,7 +11,9 @@ if (isset($_GET["idHist"]) && isset($_GET["idParag"]))
     }
 
     $_SESSION['id_histoire_enCours'] = $_GET["idHist"];
+    $_SESSION["repriseLecture"] = true;
     echo $_SESSION['id_histoire_enCours'];
+
     $requete = "SELECT * FROM paragraphe WHERE id=?";
     $response = $BDD->prepare($requete);
     $response -> execute(array($idParag));
