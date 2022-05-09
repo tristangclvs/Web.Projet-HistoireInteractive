@@ -20,6 +20,7 @@ $_SESSION['suppresion_hist'] = false;
     if ($_SESSION["connected"]){
     $response = include("scripts/script_verifMarquePage.php");
     $tabMarquePage = $response -> fetchAll();
+    var_dump($tabMarquePage);
     $nombreHistoireEnCours = $response->rowCount();
     if($nombreHistoireEnCours!=0){
         foreach ($tabMarquePage as $key => $ligne){
@@ -27,11 +28,13 @@ $_SESSION['suppresion_hist'] = false;
             $response2 = $BDD->prepare($requete);
             $response2 -> execute(array($ligne['id_paragraphe']));
             $ligneParagraphe= $response2 -> fetch();
+            var_dump($ligneParagraphe);
 
             $requete3 = "SELECT * FROM histoire WHERE id=?";
             $response3 = $BDD->prepare($requete);
             $response3 -> execute(array($ligneParagraphe['id_histoire']));
             $ligneHistoire = $response3 -> fetch();
+            var_dump($ligneHistoire);
             ?>
             <div class="col mb-4 ">
                 <div class="card h-100 cardHist ">
