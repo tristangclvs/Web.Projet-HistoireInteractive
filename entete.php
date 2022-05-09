@@ -47,7 +47,6 @@ include("scripts/connect.php");
                         <span class="p-1 rounded-3 text-dark" id="spanB">Fantastic <span class=" rounded-3 text-white" id="spanC">&nbsp; Stories</span> </span> <span class="p-1 rounded-3 text-dark" id="spanA"></span>
 
                     </a>
-                </p>
 
 
             </div>

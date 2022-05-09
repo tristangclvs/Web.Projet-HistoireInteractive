@@ -52,8 +52,8 @@ $_SESSION['suppresion_hist'] = false;
         }} ?>
 </div>
 <?php if ($_SESSION["admin"]==1){ ?>
-
-    <h2 class="text-white" id="titreCachees">&nbsp;&nbsp; <u>Histoires cachées</u></h2> <!-- <u> </u> -->
+<br>
+    <h2 class="text-white titreCategories">&nbsp;&nbsp; <u>Histoires cachées</u></h2>
 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 p-3">
     <?php
     foreach ($tab as $key => $ligne) {

@@ -9,7 +9,7 @@ $prep-> execute(array($_GET['id']));
 $ligne = $prep->fetch();
 $nbVictoires = $ligne['nb_victoires'];
 $nbDefaites = $ligne['nb_defaites'];
-
+$nbPartiesJouees = $nbVictoires+$nbDefaites;
 
 // Selectionne le paragraphe
 $verif_parag = "SELECT * FROM `paragraphe` WHERE id_histoire =?";
@@ -69,7 +69,7 @@ if (isset($_SESSION["modif_hist"])){
                             <form action="liste_paragraphe.php?id=<?=$_GET['id']?>" method="post">
                                 <button type="submit" class="btn btn-outline-info mx-3">Modifier les paragraphes</button>
                             </form>
-                            <form action="scripts/script_suppression_hist.php?id=<?=$_GET['id']?>" method="post">
+                            <form action="scripts/script_suppressionHistoire.php?id=<?=$_GET['id']?>" method="post">
                                 <button type="submit" class="btn btn-outline-danger ms-3">Supprimer l'histoire</button>
                             </form>
 

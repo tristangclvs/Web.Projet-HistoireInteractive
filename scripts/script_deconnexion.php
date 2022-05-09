@@ -1,6 +1,5 @@
 <?php
-include("../entete.php");
-$_SESSION["connected"] = false;
-$_SESSION["admin"] = false;
+session_start();
+session_unset();
 header('location: ../index.php');
 exit;

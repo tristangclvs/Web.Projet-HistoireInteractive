@@ -22,6 +22,7 @@ if (isset($_POST["usrName"]) && isset($_POST["usrPass"])) {
         //bien connecté
         echo "la personne est bien connectée";
         $_SESSION["nomUtilisateur"] = $ligne['prenom'];
+        $_SESSION["id_user"] = $ligne["id"];
         $_SESSION["admin"] = $ligne["admin"];
         $_SESSION["connected"]  = true;
         header('location: ../index.php');

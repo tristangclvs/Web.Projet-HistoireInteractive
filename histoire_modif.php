@@ -18,7 +18,7 @@ if(isset($_GET['id'])){
     <br>
     <div class="container mx-auto" id="containerConnexion" style="width:30%;">
         <fieldset class="border border-light border-2 rounded">
-            <form class="px-4 py-3" method="POST" enctype="multipart/form-data" action="scripts/script_modif_hist.php?id=<?=$_GET['id']?>">
+            <form class="px-4 py-3" method="POST" enctype="multipart/form-data" action="scripts/script_modifHistoire.php?id=<?=$_GET['id']?>">
                 <div class="mb-3">
                     <label for="FormTitre" class="form-label">Titre</label>
                     <input type="text" name="titre" class="form-control" id="FormTitre" placeholder="Titre" value="<?=$ligne['titre']?>" required>
