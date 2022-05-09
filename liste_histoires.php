@@ -45,7 +45,7 @@ $_SESSION['suppresion_hist'] = false;
                         <img src="images/book.png" class="card-img-top" alt="...">
                     <?php } ?>
                     <div class="card-body">
-                        <h5 class="card-title text-dark "> <a class="linkHist" href="scripts/script_HistoireEnCours.php?id=<?=$ligne['id_paragraphe']?>&idHist=<?=$ligneHistoire['id']?>"> <?=$ligneHistoire['titre'] ?></a></h5>
+                        <h5 class="card-title text-dark "> <a class="linkHist" href="scripts/script_HistoireEnCours.php?idParag=<?=$ligne['id_paragraphe']?>&idHist=<?=$ligneHistoire['id']?>"> <?=$ligneHistoire['titre'] ?></a></h5>
                         <p class="card-text text-dark"> <?=$ligneHistoire['description'] ?></p>
                     </div>
                     <div class="card-footer text-end">

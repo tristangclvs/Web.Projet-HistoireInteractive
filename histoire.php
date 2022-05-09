@@ -56,8 +56,8 @@ if (isset($_SESSION["modif_hist"])){
                         <tbody>
                             <tr>
                                 <td class="text-center"><?=$nbPartiesJouees?></td>
-                                <td class="text-center"><?=$nbVictoires/$nbPartiesJouees*100?>%</td>
-                                <td class="text-center"><?=$nbDefaites/$nbPartiesJouees*100?>%</td>
+                                <td class="text-center"><?=round($nbVictoires/$nbPartiesJouees*100)?>%</td>
+                                <td class="text-center"><?=round($nbDefaites/$nbPartiesJouees*100)?>%</td>
                             </tr>
                         </tbody>
                     </table>
