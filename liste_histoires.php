@@ -20,21 +20,21 @@ $_SESSION['suppresion_hist'] = false;
     if ($_SESSION["connected"]){
     $response = include("scripts/script_verifMarquePage.php");
     $tabMarquePage = $response -> fetchAll();
-    var_dump($tabMarquePage);
     $nombreHistoireEnCours = $response->rowCount();
+
     if($nombreHistoireEnCours!=0){
         foreach ($tabMarquePage as $key => $ligne){
             $requete2 = "SELECT * FROM paragraphe WHERE id=?";
-            $response2 = $BDD->prepare($requete);
-            $response2 -> execute(array($ligne['id_paragraphe']));
+            $response2 = $BDD->prepare($requete2);
+            $response2 -> execute(array(intval($ligne["id_paragraphe"])));
+            
             $ligneParagraphe= $response2 -> fetch();
-            var_dump($ligneParagraphe);
+        
 
             $requete3 = "SELECT * FROM histoire WHERE id=?";
-            $response3 = $BDD->prepare($requete);
+            $response3 = $BDD->prepare($requete3);
             $response3 -> execute(array($ligneParagraphe['id_histoire']));
             $ligneHistoire = $response3 -> fetch();
-            var_dump($ligneHistoire);
             ?>
             <div class="col mb-4 ">
                 <div class="card h-100 cardHist ">
@@ -45,7 +45,7 @@ $_SESSION['suppresion_hist'] = false;
                         <img src="images/book.png" class="card-img-top" alt="...">
                     <?php } ?>
                     <div class="card-body">
-                        <h5 class="card-title text-dark "> <a class="linkHist" href="paragraphe.php?id=<?=$ligne['id_paragraphe']?>"> <?=$ligneHistoire['titre'] ?></a></h5>
+                        <h5 class="card-title text-dark "> <a class="linkHist" href="scripts/script_HistoireEnCours.php?id=<?=$ligne['id_paragraphe']?>&idHist=<?=$ligneHistoire['id']?>"> <?=$ligneHistoire['titre'] ?></a></h5>
                         <p class="card-text text-dark"> <?=$ligneHistoire['description'] ?></p>
                     </div>
                     <div class="card-footer text-end">
