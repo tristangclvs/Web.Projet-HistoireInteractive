@@ -40,7 +40,7 @@ if($_SESSION["connected"]){
             </div>
             <div class="mb-3">
                 <label for="TextDescription" class="form-label">Description</label>
-                <textarea type="text" name="description" class="form-control" id="TextDescription" required></textarea>
+                <textarea type="text" name="description" class="form-control" id="TextDescription" maxlength="50" required></textarea>
             </div>
             <div class="mb-3 ">
                 <label for="TextImage" class="form-label custom-file-label">Image <small>(facultative)</small></label>
