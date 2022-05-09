@@ -17,7 +17,7 @@ $_SESSION['suppresion_hist'] = false;
 ?>
 <h2 class="text-white titreCategories">&nbsp;&nbsp; <u>Reprendre avec le profil de <?=$_SESSION["nomUtilisateur"]?> </u></h2>
 
-<div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 p-3">
+<div class=" one row row-cols-1 row-cols-md-3 row-cols-lg-5 p-3">
     <?php
     if ($_SESSION["connected"]){
     $response = include("scripts/script_verifMarquePage.php");
@@ -47,7 +47,7 @@ $_SESSION['suppresion_hist'] = false;
                     <img src="images/book.png" class="card-img-top" alt="...">
                 <?php } ?>
                 <div class="card-body">
-                    <h5 class="card-title text-dark "> <a class="linkHist" href="scripts/script_HistoireEnCours.php?idParag=<?=$ligne['id_paragraphe']?>&idHist=<?=$ligneHistoire['id']?>"> <?=$ligneHistoire['titre'] ?></a></h5>
+                    <h5 class="card-title text-dark "> <a class="linkHist" href="scripts/script_HistoireEnCours.php?idParag=<?=$ligne['id_paragraphe']?>&idHist=<?=$ligneHistoire['id']?>"> <?=$ligneHistoire['titre'] ?> </a></h5>
                     <p class="card-text text-dark"> <?=$ligneHistoire['description'] ?></p>
                 </div>
                 <div class="card-footer text-end">
@@ -61,9 +61,10 @@ $_SESSION['suppresion_hist'] = false;
     ?>
 </div>
 <?php }?>
+</div>
 <br>
     <h2 class="text-white titreCategories">&nbsp;&nbsp; <u>Histoires disponibles</u></h2>
-    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 p-3">
+    <div class=" two row row-cols-1 row-cols-md-3 row-cols-lg-5 p-3">
 
         <?php
         foreach ($tab as $key => $ligne) {
@@ -99,7 +100,6 @@ $_SESSION['suppresion_hist'] = false;
                 <?php
             }} ?>
     </div>
-
 <?php if ($_SESSION["admin"]==1){ ?>
 <br>
     <h2 class="text-white titreCategories">&nbsp;&nbsp; <u>Histoires cachées</u></h2>

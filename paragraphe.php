@@ -53,5 +53,6 @@ $ligne = $prep->fetch();
 </div>
 
 
-<?php }    }
+<?php } ?>
+<?php }
 include("footer.php") ?>
