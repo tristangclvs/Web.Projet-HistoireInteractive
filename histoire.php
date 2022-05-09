@@ -48,14 +48,16 @@ if (isset($_SESSION["modif_hist"])){
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="text-center" scope="col">Nombre de victoires</th>
-                            <th class="text-center" scope="col">Nombre de défaites</th>
+                            <th class="text-center" scope="col">Nombre de parties jouées</th>
+                            <th class="text-center" scope="col">Taux de réussite</th>
+                            <th class="text-center" scope="col">Taux de défaite</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="text-center"><?=$nbVictoires?></td>
-                                <td class="text-center"><?=$nbDefaites?></td>
+                                <td class="text-center"><?=$nbPartiesJouees?></td>
+                                <td class="text-center"><?=$nbVictoires/$nbPartiesJouees*100?>%</td>
+                                <td class="text-center"><?=$nbDefaites/$nbPartiesJouees*100?>%</td>
                             </tr>
                         </tbody>
                     </table>
