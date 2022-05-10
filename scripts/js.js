@@ -1,6 +1,7 @@
 let cards = document.getElementById("cards");
 let category_cards_item = document.getElementsByClassName("category-cards-item");
 let actualRotate = 0;
+
 //premier effacement des titres
 let pageActuelle = location.href.split("/").pop(); // sert à savoir dans quelle page on se situe
 

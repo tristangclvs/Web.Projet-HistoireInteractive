@@ -24,14 +24,12 @@ if ($_SESSION["connected"]) {
 
         //$n = $prep->rowCount();
         foreach ($tab as $key => $ligneMarquePage ){
-            echo "ON EST DANS LA BOUCLE SELECT FROM PARAGRAPHE";
             $verif = "SELECT * FROM paragraphe WHERE id=?";
             $prep = $BDD -> prepare($verif);
             $prep-> execute(array($ligneMarquePage["id_paragraphe"]));
             $ligne = $prep->fetch();
 
             if($ligne['id_histoire']==$_SESSION['id_histoire_enCours']){
-                echo "ON EST DANS LA BOUCLE UPDATE";
                 $verifUser= "UPDATE marquePage SET id_paragraphe=? WHERE id_user=? AND id_paragraphe=? ";
                 $prepUser = $BDD -> prepare($verifUser);
                 $prepUser -> execute(array($ligneParag["id"],$_SESSION["id_user"],$ligneMarquePage['id_paragraphe']));

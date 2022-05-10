@@ -10,6 +10,7 @@ $ligne = $prep->fetch();
 $nbVictoires = $ligne['nb_victoires'];
 $nbDefaites = $ligne['nb_defaites'];
 $nbPartiesJouees = $nbVictoires+$nbDefaites;
+if ($nbPartiesJouees == 0){ $nbPartiesJouees = 1; }
 
 // Selectionne le paragraphe
 $verif_parag = "SELECT * FROM `paragraphe` WHERE id_histoire =?";

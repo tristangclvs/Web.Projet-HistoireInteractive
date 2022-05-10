@@ -3,8 +3,8 @@ session_start();
 include("connect.php");
 
 if (isset($_POST["usrName"]) && isset($_POST["usrPass"])) {
-    $usrName = $_POST['usrName'];
-    $usrPass = $_POST['usrPass'];
+    $usrName =  htmlspecialchars($_POST['usrName'], ENT_QUOTES, 'UTF-8', false);
+    $usrPass =  htmlspecialchars($_POST['usrPass'], ENT_QUOTES, 'UTF-8', false);
     $hash = password_hash($usrPass, PASSWORD_BCRYPT);
 
     $sqlVerif = "SELECT * FROM user WHERE pseudo=?";
