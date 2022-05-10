@@ -2,6 +2,7 @@
 session_start();
 include("connect.php");
 
+// Supprime l'histoire
 if($_SESSION['connected'] && $_SESSION['admin']==1){
     if(isset($_GET['id'])){
         $requete = 'DELETE FROM histoire WHERE id=?';

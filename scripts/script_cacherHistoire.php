@@ -3,6 +3,7 @@ session_start();
 include("connect.php");
 if($_SESSION['connected'] && $_SESSION['admin']==1){
 
+    //Selectionne l'histoire et change sa value ''hidden'' si l'on clique sur Cacher histoire
     $verif = "SELECT * FROM histoire WHERE id =?";
     $prep = $BDD -> prepare($verif);
     $prep-> execute(array($_GET['id']));

@@ -7,6 +7,7 @@ if (isset($_POST["usrName"]) && isset($_POST["usrPass"])) {
     $usrPass = $_POST['usrPass'];
     $hash = password_hash($usrPass, PASSWORD_BCRYPT);
 
+    //Vérification si utilisateur déjà existant.. (selection puis traitement)
     $sqlVerif = "SELECT * FROM user WHERE pseudo=?";
     $response = $BDD->prepare($sqlVerif);
     $response->execute(array($usrName));
