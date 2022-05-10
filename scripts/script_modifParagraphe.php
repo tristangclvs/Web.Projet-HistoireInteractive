@@ -1,8 +1,7 @@
 <?php
 session_start();
 include("connect.php");
-var_dump($_GET['numHist']);
-var_dump($_GET['numParag']);
+// Première requete, selectionne le paragraphe qu'il souhaite modifier
 $verif_parag = "SELECT * FROM `paragraphe` WHERE id_histoire =? AND parag_numero=?";
 $prep_parag = $BDD -> prepare($verif_parag);
 $prep_parag-> execute(array($_GET['numHist'],$_GET['numParag']));
@@ -26,12 +25,10 @@ if($_SESSION['connected'] && $_SESSION['admin']==1){
             }
             if(!isset($erreur))
             {
-                //deuxieme requete : Création de l'histoire dans la BDD
                 $fichier = htmlspecialchars($image, ENT_QUOTES, 'UTF-8', false);
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) {
 
-                    echo 'Je suis en train de modifier avec une image';
-                    //deuxieme requete : Création de l'histoire dans la BDD
+                    //deuxieme requete : Modification de l'histoire dans la BDD (avec image)
                     $sqlVerif = "UPDATE `paragraphe` SET parag_numero=? ,parag_nom=?,parag_contenu=?,parag_image=? WHERE id_histoire =? AND parag_numero=?";
                     $response = $BDD->prepare($sqlVerif);
                     $response->execute(array($numero_parag, $titre_parag, $contenu_parag,$fichier,$_GET['numHist'],$_GET['numParag']));
@@ -43,7 +40,7 @@ if($_SESSION['connected'] && $_SESSION['admin']==1){
             }
         }
         else{
-            echo 'Je suis en train de modifier sans une image';
+            //deuxieme requete : Modification de l'histoire dans la BDD (sans image)
             $sqlVerif = "UPDATE `paragraphe` SET parag_numero=? ,parag_nom=?,parag_contenu=? WHERE id_histoire =? AND parag_numero=?";
             $response = $BDD->prepare($sqlVerif);
             $response->execute(array($numero_parag, $titre_parag, $contenu_parag,$_GET['numHist'],$_GET['numParag']));

@@ -23,7 +23,7 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
         header('location: ../histoire_modif.php?id='.$idHist);
         exit();
     }
-
+    // Si il y a une image ou non, UPDATE différent
     if ($_FILES["fileToUpload"]["type"]!="")
     {
         $image = basename($_FILES['fileToUpload']['name']);
@@ -36,10 +36,10 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
         }
         if(!isset($erreur))
         {
-            //deuxieme requete : Création de l'histoire dans la BDD
+
             $fichier = $_FILES["fileToUpload"]['name'];
             if(move_uploaded_file($_FILES["fileToUpload"]['tmp_name'], $dossier . $fichier)) {
-                //deuxieme requete : Création de l'histoire dans la BDD
+                //deuxieme requete : Modification de l'histoire dans la BDD
                 $sqlVerif = "UPDATE `histoire` SET titre=? ,categorie=?,auteur=?,annee=?,description=?,image=? WHERE id=?";
                 $response = $BDD->prepare($sqlVerif);
                 $response->execute(array($histTitre, $histCategorie, $histAuteur, $histAnnee,$histDescription,$fichier,$idHist));
@@ -55,7 +55,7 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
 
     }
     else{
-        //deuxieme requete : Création de l'histoire dans la BDD
+        //deuxieme requete : Modification de l'histoire dans la BDD
         $sqlVerif = "UPDATE `histoire` SET titre=? ,categorie=?,auteur=?,annee=?,description=? WHERE id=?";
         $response = $BDD->prepare($sqlVerif);
         $response->execute(array($histTitre, $histCategorie, $histAuteur, $histAnnee,$histDescription,$idHist));

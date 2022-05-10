@@ -2,7 +2,7 @@
 session_start();
 include("connect.php");
 $nbPOSTS = 1;
-// Demander à Gabriel s'il faut vérifier tous les isset sachant qu'on est avec des required
+
 // Création du paragraphe dans la BDD
 if(isset($_SESSION["ajout_hist"])){
     $id_histoire = $_SESSION["id_histoire"];
@@ -16,7 +16,7 @@ if(isset($_SESSION["ajout_hist"])){
 
         $suite = $_POST["ajoutOuNon"];
 
-        // Gestion de l'image après
+        // Gestion de l'image (si il y en a une ou non)
         if ($_FILES["image"]["type"]!="")
         {
             $image = basename($_FILES['image']['name']);
@@ -30,7 +30,7 @@ if(isset($_SESSION["ajout_hist"])){
             }
             if(!isset($erreur))
             {
-                //deuxieme requete : Création de l'histoire dans la BDD
+                //deuxieme requete : Création du paragraphe dans la BDD
                 $fichier = htmlspecialchars($image, ENT_QUOTES, 'UTF-8', false);
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) {
                     //deuxieme requete : Création de l'histoire dans la BDD
@@ -44,24 +44,23 @@ if(isset($_SESSION["ajout_hist"])){
             }
         }
         else{
+            //deuxieme requete : Création du paragraphe dans la BDD (sans image)
             $sqlVerif = "INSERT INTO paragraphe(parag_numero,id_histoire,parag_nom,parag_contenu,suiteHistoire) VALUES (?,?,?,?,?)";
             $response = $BDD->prepare($sqlVerif);
             $response->execute(array($numero_parag, $id_histoire, $titre_parag, $contenu_parag,$suite));
         }
 
+        //Ajout des liens dans la BDD
         if($suite == "continuer"){
+            // Récupération du nombre de liens (si l'histoire continue) et les parcourt
             foreach ($_POST as $key => $val)
             {
                 $nbPOSTS++;
-                echo $nbPOSTS;
             }
 
             $nbPOSTSSupp = $nbPOSTS - 6;
-            echo 'nb de posts après les -6 :';
-            echo $nbPOSTSSupp;
             for($i=0;$i<=$nbPOSTSSupp;$i++)
             {
-                echo ' Je rentre dans la boucle for';
                 // Ajout dans la table lien
                 $nom_action =htmlspecialchars($_POST["titre_parag$i"], ENT_QUOTES, 'UTF-8', false);
                 $id_parag_cible = htmlspecialchars($_POST["numero_parag_cible$i"], ENT_QUOTES, 'UTF-8', false);
@@ -81,6 +80,7 @@ if(isset($_SESSION["ajout_hist"])){
         $_SESSION["ajout_parag"] = true;
 
         if($_GET["finHistoire"]==1){
+            //Si il a terminé l'ajout des paragraphes: affiche l'histoire
             unset($_SESSION["ajout_hist"]);
             header('Location: ../histoire.php?id='.$id_histoire);
             exit();

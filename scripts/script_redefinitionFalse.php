@@ -1,4 +1,6 @@
 <?php
+// Clarification du code histoire,
+// Evite les conflits des variables non set coté serveur
 if (!isset($_SESSION["connected"])) {
     $_SESSION["connected"] = false;
 }

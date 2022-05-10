@@ -17,11 +17,13 @@ if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteu
     $n = $response->rowCount();
     if ($n>0)
     {
+        // Si il s'agit d'un doublon on redemande une autre histoire
         $_SESSION["doublon_histoire"] = true;
         header('location: ../histoire_ajout.php');
         exit();
     }
 
+    //Vérification si le POST possède une image ou non (car elle est facultative)
     if ($_FILES["fileToUpload"]["type"]!="")
     {
         $image = basename($_FILES['fileToUpload']['name']);
