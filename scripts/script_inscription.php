@@ -27,7 +27,6 @@ if (isset($_POST["prenom"]) &&  isset($_POST["usrName"]) && isset($_POST["usrPas
         $_SESSION["doublonPseudo"] = true;
         header('location: ../inscription.php');
     }
-
 }
 else{
     echo "Vous ne devriez pas être ici, oust.";

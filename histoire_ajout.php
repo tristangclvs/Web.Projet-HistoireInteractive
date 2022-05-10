@@ -17,7 +17,7 @@ if($_SESSION["connected"]){
 <br>
 <div class="container mx-auto" id="containerConnexion" style="width:30%;">
     <fieldset class="border border-light border-2 rounded">
-        <form class="px-4 py-3" method="POST" enctype="multipart/form-data" action="scripts/script_ajoutHistoire.php">
+        <form role="form" class="px-4 py-3" method="POST" enctype="multipart/form-data" action="scripts/script_ajoutHistoire.php">
             <div class="mb-3">
                 <label for="FormTitre" class="form-label">Titre</label>
                 <input type="text" name="titre" class="form-control" id="FormTitre" placeholder="Titre" required>

@@ -20,7 +20,7 @@ $_SESSION["ajout_parag"] = false;
 <br>
 <div class="container mx-auto" id="containerConnexion" style="width:30%;">
     <fieldset class="border border-light border-2 rounded">
-        <form id="formParag" class="px-4 py-3" method="post" enctype="multipart/form-data" action="scripts/script_ajoutParagraphe.php?finHistoire=0">
+        <form role="form" id="formParag" class="px-4 py-3" method="post" enctype="multipart/form-data" action="scripts/script_ajoutParagraphe.php?finHistoire=0">
             <div class="mb-3">
                 <label for="FormTitre" class="form-label">Titre du paragraphe</label>
                 <input type="text" name="titre_parag0" class="form-control" id="FormTitreParag" placeholder="Titre du paragraphe" required>
