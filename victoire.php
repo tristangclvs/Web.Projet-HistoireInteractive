@@ -21,6 +21,18 @@ if(isset($_GET['id'])){
     $response->execute(array($_GET['id']));
 }
 
+$reqCheminSelect = "SELECT * FROM parcours_user WHERE id_user = ? AND id_histoire=?";
+$prepCheminSelect = $BDD -> prepare($reqCheminSelect);
+$prepCheminSelect-> execute(array($_SESSION["id_user"], $_SESSION['id_histoire_enCours']));
+$ligneChemin = $prepCheminSelect->fetch();
+
+//Définir le chemin comme étant terminé
+$reqChemin = "UPDATE parcours_user SET chemin = ?, parcours_termine=? WHERE id_user = ? AND id_histoire=?";
+$prepChemin = $BDD -> prepare($reqChemin);
+$nouveauChemin = $ligneChemin['chemin'] . '&nbsp; <div  class="bg-success text-white ">VICTOIRE</div> ' ;
+
+$prepChemin-> execute(array($nouveauChemin,1, $_SESSION["id_user"], $_SESSION['id_histoire_enCours']));
+
 unset($_SESSION['id_histoire_enCours']);
 ?>
 <br>

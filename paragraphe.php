@@ -49,13 +49,13 @@ if ($_SESSION["connected"]) {
         $ligne = $prep->fetch();
 
         ?>
-
+<?php include("scripts/script_MAJ_Chemin.php"); ?>
 
         <div class="text-center"><h2><?=$ligne["parag_nom"]?></h2></div>
         <div class="container text-white  ">
             <div class="row">
                 <?php if ($ligne['parag_image']!=NULL){?>
-                    <div class="col-md-5 col-sm-7 ml-2">
+                    <div class="col-md-5 col-sm-7 ml-2 d-flex">
                         <img class="img-fluid histoireImage w-30 h-30" src="images/<?=$ligne['parag_image']?>" alt="<?=$ligne['parag_nom']?>" />
                     </div>
                 <?php }?>

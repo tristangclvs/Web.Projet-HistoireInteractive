@@ -62,6 +62,27 @@ if (isset($_SESSION["modif_hist"])){
                             </tr>
                         </tbody>
                     </table>
+                    <?php
+                    if ($prepChemin -> rowCount() != 0){ ?>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="text-center" scope="col">Votre dernière partie</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-center"><?=$ligneChemin['chemin']?></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <?php
+                    }
+                    ?>
+
+
+
+
                     <?php if ($_SESSION["admin"] == 1){?>
 
                         <hr>
