@@ -5,11 +5,31 @@ if ($_SESSION["connected"]) {
     if(isset($_GET['id']) && isset($_SESSION['id_histoire_enCours'])){
         $id_parag = htmlspecialchars($_GET['id']);
 
+        // Vérification de si il y a réellement un paragraphe, si oui on l'affiche, si non, on a un code erreur
+        $reqTest = "SELECT * from paragraphe WHERE id_histoire = ?";
+        $prepTest = $BDD -> prepare ($reqTest);
+        $prepTest -> execute(array($_SESSION['id_histoire_enCours']));
+        $tabTest = $prepTest -> fetchAll();
+        $test = false;
+        foreach ($tabTest as $key => $ligne){
 
+            if($ligne['parag_numero']==$_GET['id']){
+                $test = true;
+            }
+
+        }
+        if($test == false){
+            $_SESSION['erreur_histoire'] = true;
+            header('Location: histoire.php?id='.$_SESSION['id_histoire_enCours']);
+
+        }
+
+        // =============================================== //
         $reqParag = "SELECT * FROM paragraphe WHERE id_histoire=? AND parag_numero=?";
         $prepParag = $BDD -> prepare($reqParag);
         $prepParag -> execute(array($_SESSION['id_histoire_enCours'],$id_parag));
         $ligneParag = $prepParag ->fetch();
+
 
 
         $verifExistence = "SELECT * FROM marquePage WHERE id_user = ?";

@@ -18,6 +18,12 @@ $prep_parag = $BDD -> prepare($verif_parag);
 $prep_parag-> execute(array($_GET['id']));
 $ligne_parag = $prep_parag->fetch();
 
+// Sélectionne le dernier chemin parcouru
+$reqChemin = "SELECT * FROM parcours_user WHERE id_histoire = ? AND id_user = ?";
+$prepChemin = $BDD -> prepare($reqChemin);
+$prepChemin -> execute(array($_GET['id'],$_SESSION["id_user"]));
+$ligneChemin = $prepChemin -> fetch();
+
 $_SESSION['id_histoire_enCours'] = $_GET['id'];
 
 // Selectionne
@@ -28,6 +34,13 @@ if (isset($_SESSION["modif_hist"])){
         $_SESSION["modif_hist"] = false;
     }
 }
+    if (isset($_SESSION["erreur_histoire"])){
+        if ($_SESSION["erreur_histoire"]) { ?>
+            <div class="alert alert-danger text-center"><span style="font-weight: bold">Attention ! </span>Le paragraphe que vous essayez d'atteindre n'est pas disponible, veuillez contacter un administrateur !</div><br>
+            <?php
+            $_SESSION["erreur_histoire"] = false;
+        }
+    }
 ?>
 <?php if($_SESSION["connected"]){?>
     <div class="container">

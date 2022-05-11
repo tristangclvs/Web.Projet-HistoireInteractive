@@ -19,3 +19,6 @@ if (!isset($_SESSION["doublonPseudo"])){
 if (!isset($_SESSION["repriseLecture"])){
     $_SESSION["repriseLecture"] = false;
 }
+if (!isset($_SESSION["erreur_histoire"])){
+    $_SESSION["erreur_histoire"] = false;
+}
