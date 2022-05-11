@@ -10,6 +10,9 @@ if($_SESSION['connected'] && $_SESSION['admin']==1){
         $response->execute(array($_GET['id']));
         $_SESSION['suppression_hist']=true;
         header('location: ../liste_histoires.php');
+        exit();
     }
 }
-header('location: ../index.php');
+else{
+    header('location: ../index.php');
+}
