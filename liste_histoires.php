@@ -16,16 +16,18 @@ if (isset($_SESSION['suppresion_hist'])){
 
 $_SESSION['suppresion_hist'] = false;
 ?>
-<h2 class="text-white titreCategories">&nbsp;&nbsp; <u>Reprendre avec le profil de <?=$_SESSION["nomUtilisateur"]?> </u></h2>
-
-<div class=" one row row-cols-1 row-cols-md-3 row-cols-lg-5 p-3">
     <?php
     if ($_SESSION["connected"]){
     $response = include("scripts/script_verifMarquePage.php");
     $tabMarquePage = $response -> fetchAll();
     $nombreHistoireEnCours = $response->rowCount();
 
-    if($nombreHistoireEnCours!=0){
+    if($nombreHistoireEnCours!=0){ ?>
+        <h2 class="text-white titreCategories">&nbsp;&nbsp; <u>Reprendre avec le profil de <?=$_SESSION["nomUtilisateur"]?> </u></h2>
+
+        <div class=" one row row-cols-1 row-cols-md-3 row-cols-lg-5 p-3">
+
+        <?php
     foreach ($tabMarquePage as $key => $ligne){
         $requete2 = "SELECT * FROM paragraphe WHERE id=?";
         $response2 = $BDD->prepare($requete2);

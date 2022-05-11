@@ -4,17 +4,13 @@ $idMarquePage =0;
 if ($_SESSION["connected"]) {
     if(isset($_GET['id']) && isset($_SESSION['id_histoire_enCours'])){
         $id_parag = htmlspecialchars($_GET['id']);
-/*
-        if($_SESSION["repriseLecture"]){
 
-        }
-*/
+
         $reqParag = "SELECT * FROM paragraphe WHERE id_histoire=? AND parag_numero=?";
         $prepParag = $BDD -> prepare($reqParag);
         $prepParag -> execute(array($_SESSION['id_histoire_enCours'],$id_parag));
         $ligneParag = $prepParag ->fetch();
 
-        // Select de l'id histoire du paragraphe actuel: $_SESSION['id_histoire_enCours']
 
         $verifExistence = "SELECT * FROM marquePage WHERE id_user = ?";
         $prep = $BDD -> prepare($verifExistence);
@@ -70,6 +66,7 @@ if ($_SESSION["connected"]) {
 
                 <div class="d-flex justify-content-around  mt-4">
                     <?php
+                    // Si on a indiqué qu'il y aurait une suite au paragraphe
                     if($ligne["suiteHistoire"] == "continuer"){
                         $requete = "SELECT * FROM lien WHERE id_parag_debut =? AND id_histoire=?";
                         $prep = $BDD -> prepare($requete);
@@ -78,7 +75,6 @@ if ($_SESSION["connected"]) {
                         foreach ($tab as $key => $ligneLien) { ?>
 
                             <button onclick="location.href='paragraphe.php?id=<?=$ligneLien['id_parag_cible']?>'" type="button" class="btn btn-outline-info"><?=$ligneLien['lien_nomaction']?></button>
-
 
                             <?php
                         }}
