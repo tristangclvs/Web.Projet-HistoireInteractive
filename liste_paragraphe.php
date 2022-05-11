@@ -31,7 +31,7 @@ if($_SESSION["connected"] && $_SESSION['admin']==1){
                     <td> <?=$ligne["parag_nom"]?> </td>
                     <td> <?=$ligne["parag_contenu"]?> </td>
                     <td>
-                        <form method="post" action="paragraphe_modif.php?numParag=<?=$ligne["parag_numero"]?>&numHist=<?=$_GET['id']?>">
+                        <form role="form" method="post" action="paragraphe_modif.php?numParag=<?=$ligne["parag_numero"]?>&numHist=<?=$_GET['id']?>">
                             <button class="btn btn-outline-light" type="submit">Modifier ce paragraphe</button> </form>
                     </td>
                 </tr>

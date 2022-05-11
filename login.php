@@ -19,7 +19,7 @@ if (!$_SESSION["connected"]){
     <div class="text-center text-white"><h2>Connexion</h2></div>
 
     <div class="container mx-auto text-white" id="containerConnexion" style="width:30%;">
-        <form class="px-4 py-3" method="post" action="scripts/script_connexion.php">
+        <form role="form" class="px-4 py-3" method="post" action="scripts/script_connexion.php">
             <div class="mb-3">
                 <label for="FormUsername" class="form-label">Username</label>
                 <?php

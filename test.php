@@ -16,7 +16,7 @@ $tab = $resultat->fetchAll();
             foreach ($tab as $key => $ligne){ ?>
                 <div class="swiper-slide">
                     <div class="card h-100 cardHist ">
-                        <img src="images/<?=$ligne['image']?>" class="card-img-top" alt="...">
+                        <img src="images/<?=$ligne['image']?>" class="card-img-top" alt="<?=explode(".", $ligne['image'])[0]?>">
 
                         <div class="card-body">
                             <h5 class="card-title text-dark "> <a class="linkHist" href="histoire.php?id=<?=$ligne['id']?>"> <?=$ligne['titre'] ?></a></h5>
@@ -25,7 +25,7 @@ $tab = $resultat->fetchAll();
 
                             <?php
                             if ($_SESSION["admin"]){?>
-                                <form action="scripts/script_cacherHistoire.php?id=<?=$ligne['id']?>" method="post">
+                                <form role="form" action="scripts/script_cacherHistoire.php?id=<?=$ligne['id']?>" method="post">
                                     <button type="submit" class="btn btn-outline-dark">Cacher l'histoire</button>
                                 </form>
                                 <?php

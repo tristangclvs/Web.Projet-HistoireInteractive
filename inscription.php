@@ -10,8 +10,8 @@ if ($_SESSION["doublonPseudo"]){ ?>
     <?php
     $_SESSION["doublonPseudo"] =false;
 } ?>
-<div class="container mx-auto" id="containerConnexion" style="width:30%;">
-    <form class="px-4 py-3" method="post" action="scripts/script_inscription.php">
+<div  class="container mx-auto" id="containerConnexion" style="width:30%;">
+    <form role="form" class="px-4 py-3" method="post" action="scripts/script_inscription.php">
         <div class="mb-3">
             <label for="FormName" class="form-label">Prénom</label>
             <input type="text" name="prenom" class="form-control" id="FormName" placeholder="Prénom">

@@ -100,13 +100,13 @@ if (isset($_SESSION["modif_hist"])){
 
                         <hr>
                         <div class="container d-flex justify-content-center p-0">
-                            <form action="histoire_modif.php?id=<?=$_GET['id']?>" method="post">
+                            <form role="form" action="histoire_modif.php?id=<?=$_GET['id']?>" method="post">
                                 <button type="submit" class="btn btn-outline-warning me-3">Modifier l'histoire</button>
                             </form>
-                            <form action="liste_paragraphe.php?id=<?=$_GET['id']?>" method="post">
+                            <form role="form" action="liste_paragraphe.php?id=<?=$_GET['id']?>" method="post">
                                 <button type="submit" class="btn btn-outline-info mx-3">Modifier les paragraphes</button>
                             </form>
-                            <form action="scripts/script_suppressionHistoire.php?id=<?=$_GET['id']?>" method="post">
+                            <form role="form" action="scripts/script_suppressionHistoire.php?id=<?=$_GET['id']?>" method="post">
                                 <button type="submit" class="btn btn-outline-danger ms-3">Supprimer l'histoire</button>
                             </form>
 

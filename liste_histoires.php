@@ -44,10 +44,10 @@ $_SESSION['suppression_hist'] = false;
         <div class="col mb-4 ">
             <div class="card h-100 cardHist ">
                 <?php if ($ligneHistoire['image'] != null){ ?>
-                    <img src="images/<?=$ligneHistoire['image']?>" class="card-img-top" alt="...">
+                    <img src="images/<?=$ligneHistoire['image']?>" class="card-img-top" alt="Image de <?=explode('.',$ligneHistoire['image'])[0]?>">
                 <?php }
                 else{?>
-                    <img src="images/book.png" class="card-img-top" alt="...">
+                    <img src="images/book.png" class="card-img-top" alt="Logo Fantastic Stories">
                 <?php } ?>
                 <div class="card-body">
                     <h5 class="card-title text-dark "> <a class="linkHist" href="scripts/script_HistoireEnCours.php?idParag=<?=$ligne['id_paragraphe']?>&idHist=<?=$ligneHistoire['id']?>"> <?=$ligneHistoire['titre'] ?> </a></h5>
@@ -76,10 +76,10 @@ $_SESSION['suppression_hist'] = false;
                 <div class="col mb-4 ">
                     <div class="card h-100 cardHist ">
                         <?php if ($ligne['image'] != null){ ?>
-                            <img src="images/<?=$ligne['image']?>" class="card-img-top" alt="...">
+                            <img src="images/<?=$ligne['image']?>" class="card-img-top" alt="image de <?=explode('.',$ligne['image'])[0]?>">
                         <?php }
                         else{?>
-                            <img src="images/book.png" class="card-img-top" alt="...">
+                            <img src="images/book.png" class="card-img-top" alt="Logo de Fantastic Stories">
                         <?php } ?>
                         <div class="card-body">
                             <h5 class="card-title text-dark "> <a class="linkHist" href="histoire.php?id=<?=$ligne['id']?>"> <?=$ligne['titre'] ?></a></h5>
@@ -88,7 +88,7 @@ $_SESSION['suppression_hist'] = false;
 
                             <?php
                             if ($_SESSION["admin"]){?>
-                                <form action="scripts/script_cacherHistoire.php?id=<?=$ligne['id']?>" method="post">
+                                <form  role="form" action="scripts/script_cacherHistoire.php?id=<?=$ligne['id']?>" method="post">
                                     <button type="submit" class="btn btn-outline-dark">Cacher l'histoire</button>
                                 </form>
                                 <?php
@@ -114,10 +114,10 @@ $_SESSION['suppression_hist'] = false;
             <div class="col mb-4 ">
                 <div class="card h-100 cardHist ">
                     <?php if ($ligne['image'] != null){ ?>
-                        <img src="images/<?=$ligne['image']?>" class="card-img-top" alt="...">
+                        <img src="images/<?=$ligne['image']?>" class="card-img-top" alt="image de <?=explode('.',$ligne['image'])[0]?>">
                     <?php }
                     else{?>
-                        <img src="images/book.png" class="card-img-top" alt="...">
+                        <img src="images/book.png" class="card-img-top" alt="Logo de Fantastic Stories">
                     <?php } ?>
                     <div class="card-body">
                         <h5 class="card-title text-dark "> <a class="linkHist" href="histoire.php?id=<?=$ligne['id'] ?>"> <?=$ligne['titre'] ?> </a></h5>
@@ -126,7 +126,7 @@ $_SESSION['suppression_hist'] = false;
 
                         <?php
                         if ($_SESSION["admin"]){?>
-                            <form action="scripts/script_cacherHistoire.php?id=<?=$ligne['id']?>" method="post">
+                            <form role="form"  action="scripts/script_cacherHistoire.php?id=<?=$ligne['id']?>" method="post">
                                 <button type="submit" class="btn btn-outline-dark">Afficher l'histoire</button>
                             </form>
                             <?php
