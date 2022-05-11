@@ -84,7 +84,7 @@ if ($_SESSION["connected"]) {
                 <div class="col-md-7 col-sm-5 mr-2 pl-1">
                     <p class="p-3"><?=$ligne['parag_contenu'] ?> </p>
                 </div>
-            </div>
+
                 <div class="d-flex justify-content-around  mt-4">
                     <?php
                     // Si on a indiqué qu'il y aurait une suite au paragraphe
@@ -109,7 +109,7 @@ if ($_SESSION["connected"]) {
                     <?php }
                     ?>
                 </div>
-
+            </div>
         </div>
 
 

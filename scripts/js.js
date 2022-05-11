@@ -28,6 +28,28 @@ if (pageActuelle == 'paragraphe_ajout.php'){
         }
     })
 }
+if (pageActuelle == 'paragraphe.php?id=1'){
+    let btnZoom = document.getElementById('btnZoom');
+    let body = document.getElementsByTagName("body")[0];
+    let sizeBody = window.getComputedStyle(body).getPropertyValue('font-size');
+
+    let h2 = document.getElementsByTagName("h2")[0];
+    let sizeH2 = window.getComputedStyle(h2).getPropertyValue('font-size');
+
+    let fontSizeBody = parseFloat(sizeBody);
+    let fontSizeH2 = parseFloat(sizeH2);
+    btnZoom.addEventListener('click',()=>{
+        fontSizeBody +=1;
+        fontSizeH2 +=1;
+
+        body.style.fontSize = fontSizeBody + "px";
+        h2.style.fontSize = fontSizeH2 + "px";
+
+
+    })
+}
+
+
 
 let spanA = document.getElementById('spanA');
 let spanB = document.getElementById('spanB');

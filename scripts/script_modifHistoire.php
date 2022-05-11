@@ -7,22 +7,18 @@ if(isset($_GET['id'])){
 
 if (isset($_POST["titre"]) &&  isset($_POST["categorie"]) && isset($_POST["auteur"]) && isset($_POST["annee"]) && isset($_POST["description"]))
 {
-    $histTitre = $_POST['titre'];
-    $histCategorie = $_POST['categorie'];
-    $histAuteur = $_POST['auteur'];
-    $histAnnee = $_POST['annee'];
-    $histDescription = $_POST['description'];
+    $histTitre = htmlspecialchars($_POST["titre"]) ;
+    $histCategorie = htmlspecialchars($_POST['categorie']);
+    $histAuteur = htmlspecialchars($_POST['auteur']);
+    $histAnnee = htmlspecialchars($_POST['annee']);
+    $histDescription = htmlspecialchars($_POST['description']);
+
     //Première requête : Vérification de la non existence d'une histoire avec le même titre
     $requete = "SELECT * FROM histoire WHERE titre=?";
     $response = $BDD->prepare($requete);
     $response -> execute(array($histTitre));
     $n = $response->rowCount();
-    if ($n>0)
-    {
-        $_SESSION["doublon_histoire"] = true;
-        header('location: ../histoire_modif.php?id='.$idHist);
-        exit();
-    }
+
     // Si il y a une image ou non, UPDATE différent
     if ($_FILES["fileToUpload"]["type"]!="")
     {

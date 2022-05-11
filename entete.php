@@ -35,9 +35,25 @@ include("scripts/connect.php");
                     <span class="p-1 rounded-3 text-dark" id="spanB">Fantastic <span class=" rounded-3 text-white" id="spanC">&nbsp; Stories</span> </span> <span class="p-1 rounded-3 text-dark" id="spanA"></span>
 
                 </a>
-
-
             </div>
+
+            <?php
+            if(isset($page)){
+                if ($page == "paragraphe"){ ?>
+                    <div class="col-4 d-flex">
+                        <div>
+                            <button class="btn btn-dark border me-2 " type="button"  id="btnZoom"> <i class="fa-solid fa-plus"></i> </button>
+                        </div>
+                        <div>
+                            <button class="btn btn-dark border ms-2" type="button"  id=""> <i class="fa-solid fa-minus"></i> </button>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+
+
             <div class="col-2">
                 <div class="dropdown">
                     <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
