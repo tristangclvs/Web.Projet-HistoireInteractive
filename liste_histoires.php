@@ -5,16 +5,16 @@ $n = $resultat -> rowCount();
 
 $tab = $resultat->fetchAll();
 
-if (isset($_SESSION['suppresion_hist'])){
-    if ($_SESSION['suppresion_hist']){
+if (isset($_SESSION['suppression_hist'])){
+    if ($_SESSION['suppression_hist']){
         ?>
-        <div class="alert alert-danger text-center"><span style="font-weight: bold">Bravo ! </span>L'histoire a bien été supprimée</div>
+        <div class="alert alert-success text-center"><strong style="color:#0f5132">Bravo ! </strong>L'histoire a bien été supprimée</div>
         <br>
         <?php
     }
 }
 
-$_SESSION['suppresion_hist'] = false;
+$_SESSION['suppression_hist'] = false;
 ?>
     <?php
     if ($_SESSION["connected"]){
