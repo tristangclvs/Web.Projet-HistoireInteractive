@@ -4,6 +4,9 @@ $idMarquePage =0;
 
 if ($_SESSION["connected"]) {
     if(isset($_GET['id']) && isset($_SESSION['id_histoire_enCours'])){
+
+
+
         $id_parag = htmlspecialchars($_GET['id']);
 
         // Vérification de si il y a réellement un paragraphe, si oui on l'affiche, si non, on a un code erreur
@@ -32,7 +35,7 @@ if ($_SESSION["connected"]) {
             $prepPB -> execute(array($_SESSION["id_user"],$ligneRecup['id']));
             $_SESSION['erreur_histoire'] = true;
             header('Location: histoire.php?id='.$_SESSION['id_histoire_enCours']);
-
+            exit;
         }
 
         // =============================================== //
@@ -79,6 +82,7 @@ if ($_SESSION["connected"]) {
         $prep-> execute(array($_GET['id'],$_SESSION['id_histoire_enCours']));
         $ligne = $prep->fetch();
 
+        $_SESSION['ancien_parag']=$_GET['id'];
         ?>
 <?php include("scripts/script_MAJ_Chemin.php"); ?>
 
