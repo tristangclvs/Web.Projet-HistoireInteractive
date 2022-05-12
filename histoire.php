@@ -33,14 +33,14 @@ if(isset($_GET['id'])){
 // Selectionne
         if (isset($_SESSION["modif_hist"])){
             if ($_SESSION["modif_hist"]) { ?>
-                <div class="alert alert-success text-center"><span style="font-weight: bold">Bravo ! </span>L'histoire a été modifiée avec succès !</div><br>
+                <div class="alert alert-success text-center"><span style="font-weight: bold" class="text-black">Bravo ! </span>L'histoire a été modifiée avec succès !</div><br>
                 <?php
                 $_SESSION["modif_hist"] = false;
             }
         }
         if (isset($_SESSION["erreur_histoire"])){
             if ($_SESSION["erreur_histoire"]) { ?>
-                <div class="alert alert-danger text-center"><span style="font-weight: bold">Attention ! </span>Le paragraphe que vous essayez d'atteindre n'est pas disponible, veuillez contacter un administrateur !</div><br>
+                <div class="alert alert-danger text-black text-center"><span style="font-weight: bold; " class="text-black">Attention ! </span>Le paragraphe que vous essayez d'atteindre n'est pas disponible, veuillez contacter un administrateur !</div><br>
                 <?php
                 $_SESSION["erreur_histoire"] = false;
             }
