@@ -20,6 +20,16 @@ if ($_SESSION["connected"]) {
 
         }
         if($test == false){
+
+            //Suppression du marque page si bug et renvoie code erreur
+            $reqRecup = "SELECT * FROM paragraphe WHERE id_histoire = ? AND parag_numero=?";
+            $prepRecup = $BDD -> prepare($reqRecup);
+            $prepRecup ->execute(array($_SESSION['id_histoire_enCours'],$_SESSION['ancien_parag']));
+            $ligneRecup = $prepRecup -> fetch();
+
+            $reqPB = "DELETE from marquePage WHERE id_user = ? AND id_paragraphe = ?";
+            $prepPB = $BDD -> prepare($reqPB);
+            $prepPB -> execute(array($_SESSION["id_user"],$ligneRecup['id']));
             $_SESSION['erreur_histoire'] = true;
             header('Location: histoire.php?id='.$_SESSION['id_histoire_enCours']);
 

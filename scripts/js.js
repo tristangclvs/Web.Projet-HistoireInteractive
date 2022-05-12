@@ -28,25 +28,32 @@ if (pageActuelle == 'paragraphe_ajout.php'){
         }
     })
 }
-if (pageActuelle == 'paragraphe.php?id=1'){
-    let btnZoom = document.getElementById('btnZoom');
-    let body = document.getElementsByTagName("body")[0];
-    let sizeBody = window.getComputedStyle(body).getPropertyValue('font-size');
+if (pageActuelle.split("?")[0] == 'paragraphe.php'){
+    let btnZoomPlus = document.getElementById('btnZoom+');
+    let btnZoomMoins = document.getElementById('btnZoom-');
+
+    let text = document.getElementsByTagName("p")[0];
+    let sizeBody = window.getComputedStyle(text).getPropertyValue('font-size');
 
     let h2 = document.getElementsByTagName("h2")[0];
     let sizeH2 = window.getComputedStyle(h2).getPropertyValue('font-size');
 
     let fontSizeBody = parseFloat(sizeBody);
     let fontSizeH2 = parseFloat(sizeH2);
-    btnZoom.addEventListener('click',()=>{
+    btnZoomPlus.addEventListener('click',()=>{
         fontSizeBody +=1;
         fontSizeH2 +=1;
 
-        body.style.fontSize = fontSizeBody + "px";
+        text.style.fontSize = fontSizeBody + "px";
         h2.style.fontSize = fontSizeH2 + "px";
+    });
+    btnZoomMoins.addEventListener('click',()=>{
+        fontSizeBody -=1;
+        fontSizeH2 -=1;
 
-
-    })
+        text.style.fontSize = fontSizeBody + "px";
+        h2.style.fontSize = fontSizeH2 + "px";
+    });
 }
 
 

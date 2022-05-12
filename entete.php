@@ -42,10 +42,10 @@ include("scripts/connect.php");
                 if ($page == "paragraphe"){ ?>
                     <div class="col-4 d-flex">
                         <div>
-                            <button class="btn btn-dark border me-2 " type="button"  id="btnZoom"> <i class="fa-solid fa-plus"></i> </button>
+                            <button class="btn btn-dark border me-2 " type="button"  id="btnZoom+"> <i class="fa-solid fa-plus"></i> </button>
                         </div>
                         <div>
-                            <button class="btn btn-dark border ms-2" type="button"  id=""> <i class="fa-solid fa-minus"></i> </button>
+                            <button class="btn btn-dark border ms-2" type="button"  id="btnZoom-"> <i class="fa-solid fa-minus"></i> </button>
                         </div>
                     </div>
                     <?php
