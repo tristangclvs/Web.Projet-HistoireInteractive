@@ -7,8 +7,9 @@ let pageActuelle = location.href.split("/").pop(); // sert à savoir dans quelle
 
 
 let variable = 1;
-// Au clic du bouton on ajoute ...
 if (pageActuelle == "paragraphe_ajout.php") {
+    // Au clic du bouton on ajoute ...
+
     const bouton = document.getElementById('boutonAjoutLien');
     bouton.addEventListener('click', (event) => {
         variable += 1;
@@ -84,11 +85,12 @@ lienTitre.addEventListener("mouseout",()=>{
 function ajoutLien(){
     let formParag = document.getElementById("formParag");
     let divNouveauxLiens = document.getElementById("nouveauxLiens");
-
+    // div générale de l'action
     let divProchainAction = document.createElement("div");
     divProchainAction.classList.add("mb-3");
     divNouveauxLiens.appendChild(divProchainAction);
 
+    //label et input de l'action
     let labelAction = document.createElement("label");
     labelAction.setAttribute("for", `FormAction${variable}`);
     labelAction.classList.add("form-label");
