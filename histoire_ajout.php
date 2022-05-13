@@ -16,7 +16,7 @@ if($_SESSION["connected"]){
 
 <br>
 <div class="container mx-auto" id="containerConnexion" style="width:30%;">
-    <fieldset class="border border-light border-2 rounded">
+    <fieldset class="border border-light border-2 rounded" style="font-weight: bold;">
         <form role="form" class="px-4 py-3" method="POST" enctype="multipart/form-data" action="scripts/script_ajoutHistoire.php">
             <div class="mb-3">
                 <label for="FormTitre" class="form-label">Titre</label>
@@ -49,7 +49,7 @@ if($_SESSION["connected"]){
 
             <div class="dropdown-divider bg-light mb-3"></div>
 
-            <button type="submit" class="btn text-white button" aria-describedby="poursuivre">Ajout de l'histoire</button><br>
+            <button type="submit" style="font-weight: bold;" class="btn text-black button" aria-describedby="poursuivre">Ajout de l'histoire</button><br>
 
         </form>
     </fieldset>

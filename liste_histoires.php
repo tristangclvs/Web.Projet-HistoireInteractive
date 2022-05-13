@@ -56,7 +56,7 @@ if($nombreHistoireEnCours!=0){ ?>
                             <p class="card-text text-dark"> <?=$ligneHistoire['description'] ?></p>
                         </div>
                         <div class="card-footer text-end">
-                            <small class="text-muted"><?=$ligneHistoire['auteur'] ?>, <?=$ligneHistoire['annee'] ?></small>
+                            <small class="text-black"><?=$ligneHistoire['auteur'] ?>, <?=$ligneHistoire['annee'] ?></small>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@ if($nombreHistoireEnCours!=0){ ?>
                             ?>
                         </div>
                         <div class="card-footer text-end">
-                            <small class="text-muted"><?=$ligne['auteur'] ?>, <?=$ligne['annee'] ?></small>
+                            <small class="text-black"><?=$ligne['auteur'] ?>, <?=$ligne['annee'] ?></small>
                         </div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@ if($nombreHistoireEnCours!=0){ ?>
                         ?>
                     </div>
                     <div class="card-footer text-end">
-                        <small class="text-muted"><?=$ligne['auteur'] ?>, <?=$ligne['annee'] ?></small>
+                        <small class="text-black"><?=$ligne['auteur'] ?>, <?=$ligne['annee'] ?></small>
                     </div>
                 </div>
             </div>
