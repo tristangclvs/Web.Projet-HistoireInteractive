@@ -1,6 +1,9 @@
 <?php
 include("entete.php");
 
+if(isset($_GET['id'])){
+
+
 // Selectionne l'histoire
 $verif = "SELECT * FROM histoire WHERE id =?";
 $prep = $BDD -> prepare($verif);

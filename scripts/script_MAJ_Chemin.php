@@ -3,6 +3,7 @@
 $reqChemin = "SELECT * FROM parcours_user WHERE id_user = ? AND id_histoire=?";
 $prepChemin = $BDD -> prepare($reqChemin);
 $prepChemin-> execute(array($_SESSION["id_user"], $_SESSION['id_histoire_enCours']));
+
 //Vérifie s'il existe déjà un chemin pour cette histoire
 if ($prepChemin->rowCount()==0){
 // Si non, en crée un
